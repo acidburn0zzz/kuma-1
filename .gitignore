@@ -1,0 +1,6 @@
+*.o
+kuma
+doc/html
+doc/latex
+tests/test_*
+!tests/test_*.cpp

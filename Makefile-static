@@ -1,0 +1,211 @@
+INSTALL	= /usr/bin/env install
+AR	= /usr/bin/env ar
+ARFLAGS	= rcs
+DEST	=
+PREFIX	=
+CC	= gcc
+BINDIR	=
+TARGET	= libkuma.a
+LINK	= gcc
+CFLAGS	= -std=c++11 -O2 -Wall -Wextra -static
+LFLAGS	=
+LIBS	= `pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer lua5.3 yaml-cpp` 
+INCDIR	= -Isrc `pkg-config --cflags sdl2 lua5.3` -I/usr/include/yaml-cpp
+LIBDIR	= 
+CLEAN	=
+DEL	= rm -f
+SRC	= src/animation.cpp \
+	  src/audio/mixer.cpp \
+	  src/audio/sound.cpp \
+	  src/config.cpp \
+	  src/display.cpp \
+	  src/entity.cpp \
+	  src/entity_manager.cpp \
+	  src/entity_map.cpp \
+	  src/flip.cpp \
+	  src/game.cpp \
+	  src/init.cpp \
+	  src/key_input.cpp \
+	  src/layer.cpp \
+	  src/log.cpp \
+	  src/map.cpp \
+	  src/player_entity.cpp \
+	  src/point.cpp \
+	  src/pointer.cpp \
+	  src/rect.cpp \
+	  src/rw.cpp \
+	  src/scene.cpp \
+	  src/scene_manager.cpp \
+	  src/script_context.cpp \
+	  src/sprite.cpp \
+	  src/sprite_sheet.cpp \
+	  src/text.cpp \
+	  src/texture.cpp \
+	  src/tile.cpp \
+	  src/timer.cpp \
+	  src/user_files.cpp \
+	  src/util.cpp \
+	  src/window.cpp
+OBJ	= src/animation.o \
+	  src/audio/mixer.o \
+	  src/audio/sound.o \
+	  src/config.o \
+	  src/display.o \
+	  src/entity.o \
+	  src/entity_manager.o \
+	  src/entity_map.o \
+	  src/flip.o \
+	  src/game.o \
+	  src/init.o \
+	  src/key_input.o \
+	  src/layer.o \
+	  src/log.o \
+	  src/map.o \
+	  src/player_entity.o \
+	  src/point.o \
+	  src/pointer.o \
+	  src/rect.o \
+	  src/rw.o \
+	  src/scene.o \
+	  src/scene_manager.o \
+	  src/script_context.o \
+	  src/sprite.o \
+	  src/sprite_sheet.o \
+	  src/text.o \
+	  src/texture.o \
+	  src/tile.o \
+	  src/timer.o \
+	  src/user_files.o \
+	  src/util.o \
+	  src/window.o
+
+first: all
+
+.PHONY: doc clean
+
+.SUFFIXES: .o .c .cpp .cc .cxx .C
+
+.cpp.o:
+	$(CC) -c $(CFLAGS) $(INCDIR) -o "$@" "$<"
+
+.cc.o:
+	$(CC) -c $(CFLAGS) $(INCDIR) -o "$@" "$<"
+
+.cxx.o:
+	$(CC) -c $(CFLAGS) $(INCDIR) -o "$@" "$<"
+
+.C.o:
+	$(CC) -c $(CFLAGS) $(INCDIR) -o "$@" "$<"
+
+.c.o:
+	$(CC) -c $(CFLAGS) $(INCDIR) -o "$@" "$<"
+
+all: libkuma.a
+
+$(TARGET): $(OBJ)
+	$(AR) $(ARFLAGS) $(TARGET) $(OBJ)
+
+src/animation.o: src/animation.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/animation.o src/animation.cpp
+
+src/audio/mixer.o: src/audio/mixer.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/audio/mixer.o src/audio/mixer.cpp
+
+src/audio/sound.o: src/audio/sound.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/audio/sound.o src/audio/sound.cpp
+
+src/config.o: src/config.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/config.o src/config.cpp
+
+src/display.o: src/display.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/display.o src/display.cpp
+
+src/entity.o: src/entity.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/entity.o src/entity.cpp
+
+src/entity_manager.o: src/entity_manager.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/entity_manager.o src/entity_manager.cpp
+
+src/entity_map.o: src/entity_map.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/entity_map.o src/entity_map.cpp
+
+src/flip.o: src/flip.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/flip.o src/flip.cpp
+
+src/game.o: src/game.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/game.o src/game.cpp
+
+src/init.o: src/init.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/init.o src/init.cpp
+
+src/key_input.o: src/key_input.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/key_input.o src/key_input.cpp
+
+src/layer.o: src/layer.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/layer.o src/layer.cpp
+
+src/log.o: src/log.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/log.o src/log.cpp
+
+src/map.o: src/map.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/map.o src/map.cpp
+
+src/player_entity.o: src/player_entity.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/player_entity.o src/player_entity.cpp
+
+src/point.o: src/point.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/point.o src/point.cpp
+
+src/pointer.o: src/pointer.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/pointer.o src/pointer.cpp
+
+src/rect.o: src/rect.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/rect.o src/rect.cpp
+
+src/rw.o: src/rw.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/rw.o src/rw.cpp
+
+src/scene.o: src/scene.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/scene.o src/scene.cpp
+
+src/scene_manager.o: src/scene_manager.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/scene_manager.o src/scene_manager.cpp
+
+src/script_context.o: src/script_context.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/script_context.o src/script_context.cpp
+
+src/sprite.o: src/sprite.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/sprite.o src/sprite.cpp
+
+src/sprite_sheet.o: src/sprite_sheet.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/sprite_sheet.o src/sprite_sheet.cpp
+
+src/text.o: src/text.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/text.o src/text.cpp
+
+src/texture.o: src/texture.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/texture.o src/texture.cpp
+
+src/tile.o: src/tile.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/tile.o src/tile.cpp
+
+src/timer.o: src/timer.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/timer.o src/timer.cpp
+
+src/user_files.o: src/user_files.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/user_files.o src/user_files.cpp
+
+src/util.o: src/util.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/util.o src/util.cpp
+
+src/window.o: src/window.cpp
+	$(CC) -c $(CFLAGS) $(INCDIR) -o src/window.o src/window.cpp
+
+
+clean:
+	$(DEL) $(OBJ)
+	$(DEL) libkuma.a
+	$(DEL) 
+doc:
+	doxygen doc/doxygen.conf
+	cp doc/doxy-boot.js doc/html/

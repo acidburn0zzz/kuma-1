@@ -1,0 +1,26 @@
+---
+from_sheet: "res/prehistoric-platformer/characters/playable/caverman.png"
+clip_width: 97
+clip_height: 71
+animations:
+        - name: "standing"
+          range: [1, 6, 100]
+          sound: ""
+          sound-rate: 100
+        - name: "running"
+          range: [7, 14, 100]
+          sound: ""
+          sound-rate: 100
+        - name: "jumping"
+          range: [15, 21, 100]
+          sound: ""
+          sound-rate: 100
+        - name: "rolling"
+          range: [21, 25, 100]
+          sound: ""
+          sound-rate: 100
+        - name: "hit"
+          range: [26, 28, 200]
+          sound: "res/prehistoric-platformer/sound/hit-1.wav"
+          sound-rate: 100
+...

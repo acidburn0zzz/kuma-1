@@ -1,0 +1,10 @@
+builds:
+        script:
+                - yabs -m linux
+                - make -j2
+                - yabs -m static_lib
+                - make -j2
+                - cd tests/
+                - yabs -m linux
+                - make -j2
+                - make doc

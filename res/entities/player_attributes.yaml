@@ -1,0 +1,7 @@
+---
+attributes:
+        - name: "Name"
+          value: "Test Player"
+        - name: "Hit Points"
+          value: 100
+...

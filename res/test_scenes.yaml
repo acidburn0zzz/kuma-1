@@ -1,0 +1,32 @@
+---
+#scene:
+        #order: 1
+        #name: title
+        #map: "res/maps/title.yaml"
+scene:
+        order: 6
+        name: "new scene"
+        map: "res/maps/map_new.yaml"
+
+#scene:
+        #order: 2
+        #name: begining
+        #map: "res/maps/map_begining.yaml"
+        #entity_map: "res/maps/test_entity_map.yaml"
+
+#scene:
+        #order: 3
+        #name: middle
+        #map: "res/maps/map_middle.yaml"
+        #entity_map: "res/maps/test_entity_map.yaml"
+#scene:
+        #order: 4
+        #name: end
+        #map: "res/maps/map_end.yaml"
+        #entity_map: "res/maps/test_entity_map.yaml"
+#scene:
+        #order: 5
+        #name: "0"
+        #map: "res/maps/map_0.yaml"
+        #entity_map: "res/maps/test_entity_map.yaml"
+...

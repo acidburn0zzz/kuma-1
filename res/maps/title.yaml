@@ -1,0 +1,28 @@
+---
+layer:
+        level: 0
+        name: X
+        empty: _
+        empty_h: 128
+        empty_w: 128
+        legend:
+                - key: H
+                  image: "res/PNG/Other/skybox_side.png"
+                - key: B
+                  image: "res/PNG/Other/skybox_bottom.png"
+        raw: |
+              HHHH
+              BBBB
+layer:
+        level: 1
+        name: sun
+        empty: X
+        empty_h: 512
+        empty_w: 512
+        legend:
+                - key: S
+                  image: "res/PNG/Other/sun.png"
+        raw: |
+              XXSX
+
+...

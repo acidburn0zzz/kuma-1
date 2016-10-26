@@ -1,0 +1,6 @@
+---
+name: "Kuma Test"
+org: "FK"
+client_icon: "res/prehistoric-platformer/items/57.png"
+user_config: "config.yaml"
+...

@@ -1,0 +1,20 @@
+---
+layer:
+        level: 0
+        name: floor
+        empty: X
+        empty_h: 128
+        empty_w: 128
+        legend:
+                - key: A
+                  image: "res/PNG/Tiles/dirt.png"
+                - key: _
+                  image: "res/PNG/Tiles/grass_top.png"
+        raw: |
+              AAA_A___A_AA__
+              A___AA__A_A_A_
+              AAA_A_A_A_A_A_
+              A___A__AA_A_A_
+              AAA_A___A_AA__
+
+...

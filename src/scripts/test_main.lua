@@ -1,0 +1,1 @@
+--io.write(string.format("\r Window dimensions: %i x %i", window:get_width(), window:get_height()))

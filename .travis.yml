@@ -1,0 +1,36 @@
+language: rust
+sudo: required
+dist: trusty
+matrix:
+        include:
+                - os: linux
+                  env: COMPILER_NAME=gcc CXX=g++5 CC=gcc-5
+                  addons:
+                          apt:
+                                  sources:
+                                          - ubuntu-toolchain-r-test
+                                  packages:
+                                          - gcc-5
+                                          - g++-5
+before_install:
+    - cargo install yabs
+    - export PATH=$PATH:$HOME/.cargo/bin
+    - sed -i 's/lua5\.3/lua5\.1/g' kuma.toml tests/tests.toml
+    - sudo apt-get update -qq
+    - sudo apt-get install build-essential valgrind libsdl2-ttf-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libboost-dev liblua5.1-0-dev libyaml-cpp-dev -y
+script:
+    - sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc
+    - yabs -m linux
+    - make -j2
+    - yabs -m static_lib
+    - make -j2
+    - cd tests/
+    - yabs -m linux
+    - make -j2
+    - make doc
+notifications:
+    email:
+        recipients:
+            - albcoron@gmail.com
+        on_failure: always
+        on_success: change

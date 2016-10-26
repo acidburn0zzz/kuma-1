@@ -1,0 +1,25 @@
+---
+layer:
+        level: 0
+        name: floor
+        empty: _
+        empty_h: 128
+        empty_w: 128
+        legend:
+                - key: A
+                  image: "res/PNG/Tiles/dirt.png"
+                - key: B
+                  image: "res/PNG/Tiles/grass_top.png"
+        raw: |
+              _A_____A_A_AA__A___A__A_AA__
+              _A_A_A_A_A_A_A_A___A__A_AA__
+              AA_A_A_A_A_A_A__A_A_A_A_A_A_
+              AA__A__A_A_A_A__A_A_A_A_A_A_
+              AA_____A_A_AA____A__A_A_A_A_
+              AA_____A_A_AA_______A_A_AA__
+              AA_A_A_A_A_A_A__A_A_A_A_A_A_
+              AA_A_A_A_A_A_A__A_A_A_A_A_A_
+              AA__A__A_A_A_A___A__A_A_A_A_
+              AA_____A_A_AA_______A_A_AA__
+
+...

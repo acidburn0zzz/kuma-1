@@ -1,0 +1,62 @@
+---
+layer:
+        level: 0
+        name: X
+        empty: _
+        empty_h: 600
+        empty_w: 800
+        legend:
+                - key: H
+                  image: "res/prehistoric-platformer/background-elements/sky-1.png"
+        raw: |
+              HHHH
+              ____
+layer:
+        level: 1
+        name: X
+        empty: _
+        empty_h: 450
+        empty_w: 800
+        legend:
+                - key: M
+                  image: "res/prehistoric-platformer/background-elements/mountain-1.png"
+        raw: |
+                ____
+                MMMM
+layer:
+        level: 2
+        name: X
+        empty: _
+        empty_h: 850
+        empty_w: 800
+        legend:
+                - key: G
+                  image: "res/prehistoric-platformer/background-elements/grass-1.png"
+        raw: |
+                ____
+                GGGG
+#layer:
+        #level: 1
+        #name: X
+        #empty: _
+        #empty_h: 600
+        #empty_w: 800
+        #legend:
+                #- key: K
+                  #image: "res/prehistoric-platformer/background-elements/mountain-3.png"
+        #raw: |
+              #XXX
+              #_K_
+#layer:
+        #level: 2
+        #name: X
+        #empty: _
+        #empty_h: 600
+        #empty_w: 800
+        #legend:
+                #- key: M
+                  #image: "res/prehistoric-platformer/background-elements/mountain-1.png"
+        #raw: |
+              #____
+              #_MMM
+...
