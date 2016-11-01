@@ -1,3 +1,6 @@
 [submodule "tests/kuma"]
 	path = tests/kuma
 	url = git@gitlab.com:0X1A/kuma
+[submodule "third_party/sol2"]
+	path = third_party/sol2
+	url = https://github.com/ThePhD/sol2

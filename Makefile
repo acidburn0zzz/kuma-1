@@ -7,10 +7,10 @@ CC	= g++
 BINDIR	=
 TARGET	= kuma
 LINK	= g++
-CFLAGS	= -std=c++11 -O0 -Wall -Wextra -g -D_DEBUG_
+CFLAGS	= -std=c++14 -O0 -Wall -Wextra -g -D_DEBUG_
 LFLAGS	=
-LIBS	= `pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer lua5.3 yaml-cpp` 
-INCDIR	= -Isrc `pkg-config --cflags sdl2 lua5.3` -I/usr/include/yaml-cpp
+LIBS	= `pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer lua5.1 yaml-cpp` 
+INCDIR	= -Isrc `pkg-config --cflags sdl2 lua5.1` -I/usr/include/yaml-cpp -Ithird_party/sol2
 LIBDIR	= 
 CLEAN	=
 DEL	= rm -f

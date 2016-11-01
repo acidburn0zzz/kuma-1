@@ -23,6 +23,7 @@ Game::Game(std::string path) {
 	if (from["client_icon"]) {
 		window.set_icon(from["client_icon"].as<std::string>());
 	}
+	this->global_script_context["global_window"] = window;
 	window.write_variables(this->global_script_context);
 	running = true;
 #ifdef _DEBUG_
@@ -37,6 +38,7 @@ Game::Game(std::string org, std::string name) {
 	window =
 	    Window(name, 0, 0, displays.displays.at(0).get_width(),
 		   displays.displays.at(0).get_height(), WindowFlag::Resizable);
+	this->global_script_context["global_window"] = window;
 	window.write_variables(this->global_script_context);
 	running = true;
 	this->name = name;

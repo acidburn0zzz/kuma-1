@@ -16,7 +16,7 @@ class Entity : public DebugLoggable {
 public:
 	Entity();
 	Entity(std::string path, Window &window, int x, int y, int w, int h);
-	Entity(RW &rw, SDL_Renderer *ren, int x, int y);
+	Entity(RW &, SDL_Renderer *, int x, int y);
 	void execute_script(std::string name, std::string path,
 			    ScriptContext &context);
 	void load_script(std::string path, ScriptContext &context);

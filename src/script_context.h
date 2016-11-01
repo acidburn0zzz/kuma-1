@@ -2,13 +2,13 @@
 #define _SCRIPT_CONTEXT_H_
 
 #include <fstream>
-#include "luawrapper/LuaContext.hpp"
+#include "sol.hpp"
 
-class ScriptContext : public LuaContext {
+class ScriptContext : public sol::state {
 public:
-	void open_script(std::string path);
+	void open_script(std::string);
 	void execute();
-	ScriptContext &operator=(const ScriptContext &copy);
+	ScriptContext &operator=(const ScriptContext &);
 
 private:
 	std::string inner_script;

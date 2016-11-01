@@ -15,7 +15,7 @@ Entity::Entity(std::string path, Window &window, int x, int y, int w, int h) {
 	uid = static_cast<long>(reinterpret_cast<intptr_t>(this));
 }
 
-Entity::Entity(RW &rw, SDL_Renderer *ren, int x, int y) {
+Entity::Entity(RW &, SDL_Renderer *, int x, int y) {
 	sprite.rect.set_velocities(0, 0);
 	sprite.rect.set_position(x, y);
 	uid = static_cast<long>(reinterpret_cast<intptr_t>(this));
@@ -68,7 +68,7 @@ void Entity::execute_script(std::string name, std::string path,
 			    ScriptContext &context) {
 	read_script(path);
 	write_variables(context);
-	context.executeCode(script_contents);
+	context.script(script_contents);
 }
 
 Entity &Entity::operator=(const Entity &copy) {

@@ -10,7 +10,7 @@ All generated documentation is available in `doc/html`
 
 ### Dependencies
 `kuma` depends on SDL2, SDL2_ttf, SDL2_img, SDL2_mixer, libyaml-cpp, and Lua >= 5.1. `kuma` also uses
-[`tomaka/luawrapper`](https://github.com/tomaka/luawrapper).
+[`ThePhD/sol2`](https://github.com/ThePhD/sol2).
 
 ### Building
 

@@ -44,13 +44,12 @@ int main(int argc, char *argv[]) {
 	kuma.global_mixer.set_master_volume(128 / 2);
 
 	while (kuma.is_running()) {
-		kuma.global_timer.print_counter();
 		kuma.window.render_frame();
 		kuma.global_script_context.execute();
 		kuma.global_scene_manager.render_front(kuma.window);
-		player.sprite.draw_ex(kuma.window, kuma.global_timer, kuma.global_mixer, 45);
-		//player.sprite.draw(kuma.window, kuma.global_timer,
-				   //kuma.global_mixer);
+		//player.sprite.draw_ex(kuma.window, kuma.global_timer, kuma.global_mixer, 45);
+		player.sprite.draw(kuma.window, kuma.global_timer,
+				   kuma.global_mixer);
 		display_text.draw(kuma.window, kuma.global_timer);
 		player.sprite.rect.draw(kuma.window.get_renderer());
 		kuma.global_scene_manager.scenes.front().map.draw_tile_outlines(

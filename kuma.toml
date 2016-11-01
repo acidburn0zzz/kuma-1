@@ -3,8 +3,8 @@ name = "kuma"
 target = ["kuma"]
 lang = "cpp"
 compiler = "g++"
-cflags = ["std=c++11", "O0", "Wall", "Wextra", "g", "D_DEBUG_"]
-inc = ["src","`pkg-config --cflags sdl2 lua5.3`", "/usr/include/yaml-cpp", ]
+cflags = ["std=c++14", "O0", "Wall", "Wextra", "g", "D_DEBUG_"]
+inc = ["src","`pkg-config --cflags sdl2 lua5.3`", "/usr/include/yaml-cpp", "third_party/sol2/single"]
 libs = [
 	"`pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer lua5.3 yaml-cpp`",
 ]
@@ -12,6 +12,7 @@ ignore = [
 	"tests/",
 	"src/scratch.cpp",
 	"src/scratch0.cpp",
+	"third_party/",
 ]
 clean = [
 	'-r doc/html doc/latex',
@@ -24,7 +25,7 @@ target = ["kuma"]
 lang = "cpp"
 compiler = "g++"
 cflags = ["std=c++11", "O2", "Wall", "Wextra", "D_REL_"]
-inc = ["src","`pkg-config --cflags sdl2 lua5.3`", "/usr/include/yaml-cpp", ]
+inc = ["src","`pkg-config --cflags sdl2 lua5.3`", "/usr/include/yaml-cpp", "third_party/sol2/single"]
 libs = [
 	"`pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer lua5.3 yaml-cpp`",
 ]
@@ -32,6 +33,7 @@ ignore = [
 	"tests/",
 	"src/scratch.cpp",
 	"src/scratch0.cpp",
+	"third_party/",
 ]
 clean = [
 	'-r doc/html doc/latex',
@@ -52,7 +54,7 @@ target = ["libkuma.a"]
 lang = "cpp"
 comp = "g++"
 cflags = ["std=c++11", "O2", "Wall", "Wextra", "static"]
-inc = ["src","`pkg-config --cflags sdl2 lua5.3`", "/usr/include/yaml-cpp", ]
+inc = ["src","`pkg-config --cflags sdl2 lua5.3`", "/usr/include/yaml-cpp", "third_party/sol2"]
 libs = [
 	"`pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer lua5.3 yaml-cpp`",
 ]
@@ -60,6 +62,7 @@ ignore = [
 	"src/main.cpp",
 	"src/scratch.cpp",
 	"tests/",
+	"third_party/",
 ]
 
 [windows-x86_64.project]

@@ -81,7 +81,7 @@ void Sprite::draw(Window &window) {
 	current.render_front(window, sheet.texture, rect);
 }
 
-void Sprite::draw_ex(Window &window, const Timer &timer, Mixer &mixer, double angle) {
+void Sprite::draw_ex(Window &window, const Timer &, Mixer &, double angle) {
 	current.render_front(window, sheet.texture, rect, angle);
 }
 

@@ -1,6 +1,7 @@
 #include "script_context.h"
 
 void ScriptContext::open_script(std::string script) {
+	open_libraries();
 	std::string script_contents;
 	std::ifstream script_file(script, std::ios::in | std::ios::binary);
 
@@ -14,7 +15,7 @@ void ScriptContext::open_script(std::string script) {
 	inner_script = script_contents;
 }
 
-void ScriptContext::execute() { executeCode(inner_script); }
+void ScriptContext::execute() { script(inner_script); }
 
 ScriptContext &ScriptContext::operator=(const ScriptContext &copy) {
 	inner_script = copy.inner_script;
