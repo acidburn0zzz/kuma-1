@@ -48,27 +48,6 @@ void Window::render_clear() { SDL_RenderClear(this->renderer.get()); }
 
 void Window::render_present() { SDL_RenderPresent(this->renderer.get()); }
 
-void Window::render(Texture &texture, int x, int y, SDL_Point &point) {
-	Rect dest(x, y, texture.get_width(), texture.get_height());
-	SDL_RenderCopyEx(renderer.get(), texture.get_sdl_texture(), nullptr,
-			 dest.get_sdl_rect(), 0, &point, SDL_FLIP_NONE);
-}
-
-void Window::render(Texture &texture, Rect &dest, SDL_Point &point) {
-	SDL_RenderCopyEx(renderer.get(), texture.get_sdl_texture(), nullptr,
-			 dest.get_sdl_rect(), 0, &point, SDL_FLIP_NONE);
-}
-
-void Window::render(Texture &texture, Rect &src, Rect &dest) {
-	SDL_RenderCopy(renderer.get(), texture.get_sdl_texture(),
-		       src.get_sdl_rect(), dest.get_sdl_rect());
-}
-
-void Window::render_ex(Texture &texture, Rect &src, Rect &dest, double angle) {
-	SDL_RenderCopyEx(renderer.get(), texture.get_sdl_texture(),
-			src.get_sdl_rect(), dest.get_sdl_rect(), angle, nullptr, SDL_RendererFlip::SDL_FLIP_NONE);
-}
-
 SharedRenderPtr Window::set_renderer(RenderFlag ren_flag) {
 	return SharedRenderPtr(SDL_CreateRenderer(
 	    window.get(), -1, static_cast<uint32_t>(ren_flag)));

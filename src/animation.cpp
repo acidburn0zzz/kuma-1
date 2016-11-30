@@ -1,4 +1,5 @@
 #include "animation.h"
+#include "window.h"
 
 void Animation::next_frame() {
 	frames.push_back(frames.front());
@@ -11,12 +12,14 @@ void Animation::prev_frame() {
 }
 
 void Animation::render_front(Window &window, Texture &texture, Rect &dest) {
-	window.render(texture, frames.front(), dest);
+	SDL_RenderCopy(window.get_renderer(), texture.get_sdl_texture(),
+			frames.front().get_sdl_rect(), dest.get_sdl_rect());
 }
 
 
 void Animation::render_front(Window &window, Texture &texture, Rect &dest, double angle) {
-	window.render_ex(texture, frames.front(), dest, angle);
+	SDL_RenderCopyEx(window.get_renderer(), texture.get_sdl_texture(),
+			frames.front().get_sdl_rect(), dest.get_sdl_rect(), angle, nullptr, SDL_RendererFlip::SDL_FLIP_NONE);
 }
 
 void Animation::set_sound(std::string path, unsigned audio_rate) {

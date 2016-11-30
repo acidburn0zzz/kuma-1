@@ -71,14 +71,13 @@ void EntityMap::map_entities(Window &window) {
 
 void EntityMap::draw_entity_outlines(Window &window) {
 	for (auto it = entities.begin(); it != entities.end(); ++it) {
-		it->get()->sprite.rect.draw(window.get_renderer());
+		it->get()->sprite.rect.draw(window);
 	}
 }
 
 void EntityMap::draw(Window &window) {
 	for (auto it = entities.begin(); it != entities.end(); ++it) {
-		window.render(it->get()->get_sprite().sheet,
-			      it->get()->sprite.rect);
+		it->get()->sprite.draw(window);
 	}
 }
 

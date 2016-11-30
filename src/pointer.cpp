@@ -24,5 +24,4 @@ void Pointer::handle_mouse(const SDL_Event &event) {
 void Pointer::draw(Window &window) {
 	SDL_RenderCopy(window.get_renderer(), texture.get_sdl_texture(),
 		       nullptr, rect.get_sdl_rect());
-	// window.render(this, rect);
 }

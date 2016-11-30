@@ -11,9 +11,8 @@
 #include "audio/sound.h"
 #include "rect.h"
 #include "texture.h"
-#include "window.h"
-#include "flip.h"
-#include "point.h"
+
+class Window;
 
 class Animation {
 public:

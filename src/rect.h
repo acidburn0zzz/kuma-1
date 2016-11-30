@@ -4,11 +4,14 @@
 #include <SDL.h>
 #include <iostream>
 #include <tuple>
+#include "drawable.h"
+
+class Window;
 
 /// Class used to represent a rectangle on a 2D surface. This is used for
 /// setting all coordinates in `kuma` as well as sprite width and height.
 /// All positions are set and gotten in (X, Y).
-class Rect {
+class Rect : public Drawable {
 public:
 	friend class Entity;
 	friend class Player;
@@ -42,7 +45,7 @@ public:
 	void set_y_cord(const int y);
 	void set_outline_color(const uint8_t R, const uint8_t G,
 			       const uint8_t B, const uint8_t A);
-	void draw(SDL_Renderer *ren);
+	void draw(Window &window);
 	int get_x_cord();
 	int get_y_cord();
 	int get_width();

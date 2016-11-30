@@ -22,7 +22,6 @@ public:
 	void load_script(std::string path, ScriptContext &context);
 	void yaml_attributes(std::string path);
 	void move(int constraint_x, int constraint_y, Timer &timer);
-	void render(Window &window, Timer &timer);
 	void set_rate(const int rate);
 	void debug_log(DebugLog &log);
 	int get_uid();

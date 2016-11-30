@@ -2,10 +2,6 @@
 
 Entity::Entity() { uid = static_cast<long>(reinterpret_cast<intptr_t>(this)); }
 
-void Entity::render(Window &window, Timer &timer) {
-	sprite.draw(window, timer);
-}
-
 Entity::Entity(std::string path, Window &window, int x, int y, int w, int h) {
 	sprite.from_sheet(path, window, w, h, 0);
 	sprite.rect.set_x_velocity(0);

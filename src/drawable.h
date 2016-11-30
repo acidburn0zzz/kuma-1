@@ -1,14 +1,15 @@
 #ifndef _DRAWABLE_H_
 #define _DRAWABLE_H_
 
-#include "audio/mixer.h"
-#include "timer.h"
-#include "window.h"
+#include "flip.h"
+
+class Window;
+class Timer;
+class Mixer;
 
 class Drawable : public Flippable {
 public:
 	virtual void draw(Window &window) = 0;
-	virtual void draw_ex(Window &){};
 };
 
 class AnimatedDrawable : public Flippable {

@@ -1,4 +1,5 @@
 #include "rect.h"
+#include "window.h"
 
 Rect::Rect() {
 	rect.x = 0;
@@ -32,11 +33,11 @@ Rect::Rect(int x, int y, int w, int h) {
 
 SDL_Rect *Rect::get_sdl_rect() { return &rect; }
 
-void Rect::draw(SDL_Renderer *ren) {
-	SDL_SetRenderDrawColor(ren, rect_color.r, rect_color.g, rect_color.b,
-			       rect_color.a);
-	SDL_RenderDrawRect(ren, &rect);
-	SDL_SetRenderDrawColor(ren, 0x00, 0x00, 0x00, 0x00);
+void Rect::draw(Window &window) {
+	SDL_SetRenderDrawColor(window.get_renderer(), rect_color.r, rect_color.g,
+			rect_color.b, rect_color.a);
+	SDL_RenderDrawRect(window.get_renderer(), &rect);
+	SDL_SetRenderDrawColor(window.get_renderer(), 0x00, 0x00, 0x00, 0x00);
 }
 
 void Rect::set_outline_color(const uint8_t R, const uint8_t G, const uint8_t B,

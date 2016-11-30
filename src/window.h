@@ -49,13 +49,6 @@ public:
 	Window(std::string title, int x, int y, int w, int h, WindowFlag flag);
 	Window(std::string title, int x, int y, int w, int h,
 	       WindowFlag win_flag, RenderFlag ren_flag);
-	template <typename T> void render_texture(T &t, Rect &rect);
-	template <typename T> void render(T &t, Rect &rect);
-	template <typename T> void render_src_dst(T &t, Rect &src, Rect &dest);
-	void render(Texture &texture, int x, int y, SDL_Point &point);
-	void render(Texture &texture, Rect &dest, SDL_Point &point);
-	void render(Texture &texture, Rect &src, Rect &dest);
-	void render_ex(Texture &texture, Rect &src, Rect &dest, double angle);
 	void render_clear();
 	void render_present();
 	void render_frame();
@@ -81,20 +74,5 @@ private:
 	SharedWindowPtr window;
 	SharedRenderPtr renderer;
 };
-
-template <typename T> void Window::render_texture(T &t, Rect &rect) {
-	SDL_RenderCopy(renderer.get(), t.get_sdl_texture(), nullptr,
-		       rect.get_sdl_rect());
-}
-
-template <typename T> void Window::render(T &t, Rect &rect) {
-	SDL_RenderCopy(renderer.get(), t.texture.get_sdl_texture(), nullptr,
-		       rect.get_sdl_rect());
-}
-
-template <typename T> void Window::render_src_dst(T &t, Rect &src, Rect &dest) {
-	SDL_RenderCopy(renderer.get(), t.texture.get_sdl_texture(),
-		       src.get_sdl_rect(), dest.get_sdl_rect());
-}
 
 #endif

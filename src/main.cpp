@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
 	sprite.set_current_animation("hit");
 	sprite.rect.set_position(0, 100);
 
-	Music clip("res/sound/Revolve.mp3");
+	Music clip("res/sound/Revolve.ogg");
 
 	SDL_Event e;
 
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
 		player.sprite.draw(kuma.window, kuma.global_timer,
 				   kuma.global_mixer);
 		display_text.draw(kuma.window, kuma.global_timer);
-		player.sprite.rect.draw(kuma.window.get_renderer());
+		player.sprite.rect.draw(kuma.window);
 		kuma.global_scene_manager.scenes.front().map.draw_tile_outlines(
 		    kuma.window);
 		kuma.global_scene_manager.scenes.front()

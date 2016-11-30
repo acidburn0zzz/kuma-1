@@ -119,7 +119,7 @@ void Map::draw(Window &window) {
 	for (auto lit = layers.begin(); lit != layers.end(); ++lit) {
 		for (auto it = lit->tiles.begin(); it != lit->tiles.end();
 		     ++it) {
-			window.render(*it, it->rect);
+			it->draw(window);
 		}
 	}
 }
@@ -128,7 +128,7 @@ void Map::draw_tile_outlines(Window &window) {
 	for (auto lit = layers.begin(); lit != layers.end(); ++lit) {
 		for (auto it = lit->tiles.begin(); it != lit->tiles.end();
 		     ++it) {
-			it->rect.draw(window.get_renderer());
+			it->rect.draw(window);
 		}
 	}
 }
