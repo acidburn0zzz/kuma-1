@@ -72,10 +72,8 @@ void Window::inc_frame_count() { frame_count++; }
 uint32_t Window::get_frame_count() { return frame_count; }
 
 void Window::write_variables(ScriptContext &context) {
-	context.new_usertype<Window>("window",
-			"get_width", &Window::get_width,
-			"get_height", &Window::get_height
-			);
+	context.new_usertype<Window>("window", "get_width", &Window::get_width,
+				     "get_height", &Window::get_height);
 }
 
 Window &Window::operator=(const Window &copy) {

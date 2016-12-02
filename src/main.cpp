@@ -8,14 +8,14 @@ int main(int argc, char *argv[]) {
 	kuma.global_scene_manager.scenes_from_yaml("res/test_scenes.yaml",
 						   kuma.window);
 
-	Sprite sprite;
-	sprite.from_sheet(
+	Entity sprite;
+	sprite.sprite.from_sheet(
 	    "res/prehistoric-platformer/characters/playable/lion.png",
 	    kuma.window, 120, 83, 0);
-	sprite.set_animation("hit", 27, 33, 100,
+	sprite.sprite.set_animation("hit", 27, 33, 100,
 			     "res/prehistoric-platformer/sound/hit-1.wav", 800);
-	sprite.set_current_animation("hit");
-	sprite.rect.set_position(0, 100);
+	sprite.sprite.set_current_animation("hit");
+	sprite.sprite.rect.set_position(0, 100);
 
 	Music clip("res/sound/Revolve.ogg");
 
@@ -35,19 +35,19 @@ int main(int argc, char *argv[]) {
 
 	Text display_text("res/LiberationMono-Regular.ttf", 16, kuma.window,
 			  kuma.displays.displays.at(0).get_height(), 0, 0);
-	display_text.set_text(
-	    "Press 'Space' to pause, and 'q' to close",
-	    kuma.window);
+	display_text.set_text("Press 'Q' to quit and 'Space' to pause",
+			      kuma.window);
 	display_text.set_color(255, 255, 255, 0);
-	display_text.set_position(20, kuma.window.get_height() - 20);
 	kuma.global_mixer.play(clip);
 	kuma.global_mixer.set_master_volume(128 / 2);
 
 	while (kuma.is_running()) {
+		display_text.set_position(20, kuma.window.get_height() - display_text.get_rect().get_height());
 		kuma.window.render_frame();
 		kuma.global_script_context.execute();
-		kuma.global_scene_manager.render_front(kuma.window);
-		//player.sprite.draw_ex(kuma.window, kuma.global_timer, kuma.global_mixer, 45);
+		kuma.global_scene_manager.render_front(kuma.window, kuma.global_timer, kuma.global_mixer);
+		// player.sprite.draw_ex(kuma.window, kuma.global_timer,
+		// kuma.global_mixer, 45);
 		player.sprite.draw(kuma.window, kuma.global_timer,
 				   kuma.global_mixer);
 		display_text.draw(kuma.window, kuma.global_timer);
@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
 		    kuma.window);
 		kuma.global_scene_manager.scenes.front()
 		    .entity_map.draw_entity_outlines(kuma.window);
-		sprite.draw(kuma.window, kuma.global_timer, kuma.global_mixer);
+		sprite.sprite.draw(kuma.window, kuma.global_timer, kuma.global_mixer);
 		if (SDL_PollEvent(&e)) {
 			if (e.type == SDL_QUIT) {
 				kuma.end();
@@ -65,11 +65,11 @@ int main(int argc, char *argv[]) {
 				switch (e.key.keysym.sym) {
 				case SDLK_ESCAPE:
 					kuma.global_scene_manager.next_scene(
-					    kuma.window);
+					    kuma.window, kuma.global_timer, kuma.global_mixer);
 					break;
 				case SDLK_1:
 					kuma.global_scene_manager.prev_scene(
-					    kuma.window);
+					    kuma.window, kuma.global_timer, kuma.global_mixer);
 					break;
 				case SDLK_q:
 					kuma.end();
@@ -84,14 +84,17 @@ int main(int argc, char *argv[]) {
 					break;
 				case SDLK_SPACE:
 					if (!kuma.global_timer.is_paused()) {
+						display_text.set_text("Press 'Q' to quit and 'Space' to pause\nPaused", kuma.window);
 						kuma.global_timer.pause();
 					} else {
+						display_text.set_text("Press 'Q' to quit and 'Space' to pause\nUnpaused", kuma.window);
 						kuma.global_timer.unpause();
-					} if (!kuma.global_mixer.music_paused()) {
+					}
+					if (!kuma.global_mixer.music_paused()) {
 						kuma.global_mixer.pause_music();
 					} else {
 						kuma.global_mixer
-							.resume_music();
+						    .resume_music();
 					}
 					break;
 				}

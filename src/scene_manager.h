@@ -9,6 +9,9 @@
 #include "scene.h"
 #include "window.h"
 
+class Timer;
+class Mixer;
+
 class SceneManager {
 public:
 	SceneManager();
@@ -18,10 +21,10 @@ public:
 	void from_yaml(std::string, Window &window);
 	void read_yaml(std::string path, Window &window);
 	void map_front_scene(Window &window);
-	void render_front(Window &window);
+	void render_front(Window &window, Timer &timer, Mixer &mixer);
 	void pop_scene(Window &window);
-	void next_scene(Window &window);
-	void prev_scene(Window &window);
+	void next_scene(Window &window, Timer &timer, Mixer &mixer);
+	void prev_scene(Window &window, Timer &timer, Mixer &mixer);
 	std::deque<Scene> scenes;
 };
 

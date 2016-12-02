@@ -23,7 +23,8 @@ public:
 	void next_frame();
 	void prev_frame();
 	void render_front(Window &window, Texture &texture, Rect &dest);
-	void render_front(Window &window, Texture &texture, Rect &dest, double angle);
+	void render_front(Window &window, Texture &texture, Rect &dest,
+			  double angle);
 	void set_sound(std::string path, unsigned audio_rate);
 	void play_sound(Mixer &mixer);
 	std::deque<Rect> frames;

@@ -1,0 +1,21 @@
+---
+empty: _
+empty_h: 70
+empty_w: 65
+legend:
+        - key: W
+          sprite_yaml: "res/entities/test_entity.yaml"
+          attributes: "res/maps/entity_test_attributes.yaml"
+          w: 65
+          h: 70
+        - key: E
+          sprite_yaml: "res/entities/test_entity0.yaml"
+          attributes: "res/maps/entity_test_attributes.yaml"
+          w: 65
+          h: 70
+raw: |
+        _____
+        _____
+        _____
+        E___W
+...

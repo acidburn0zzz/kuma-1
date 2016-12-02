@@ -3,8 +3,7 @@
 Init::Init() {
 	set_init_flag = InitFlag::InitEverything;
 	set_img_init_flag = ImgInitFlag::InitAll;
-	set_mix_init_flag =
-	    MixInitFlag::InitFlac | MixInitFlag::InitOgg;
+	set_mix_init_flag = MixInitFlag::InitFlac | MixInitFlag::InitOgg;
 	init_sdl(set_init_flag);
 	init_sdl_image(set_img_init_flag);
 	init_sdl_ttf();

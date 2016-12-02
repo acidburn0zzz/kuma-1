@@ -15,7 +15,7 @@ void EntityMap::read_yaml(std::string path) {
 	if (from["empty_h"]) {
 		entity_layer.empty_h = from["empty_h"].as<int>();
 	}
-	if (from["empty_h"]) {
+	if (from["empty_w"]) {
 		entity_layer.empty_w = from["empty_w"].as<int>();
 	}
 	if (from["legend"]) {
@@ -25,7 +25,7 @@ void EntityMap::read_yaml(std::string path) {
 						       int, int>>(
 				from["legend"][i]["key"].as<char>(),
 				std::make_tuple(
-				    from["legend"][i]["image"]
+				    from["legend"][i]["sprite_yaml"]
 					.as<std::string>(),
 				    from["legend"][i]["attributes"]
 					.as<std::string>(),
@@ -43,28 +43,23 @@ void EntityMap::map_entities(Window &window) {
 	for (auto it = entity_layer.raw.begin(); it != entity_layer.raw.end();
 	     ++it) {
 		if ((*it != '\n') && (*it != entity_layer.empty)) {
-			auto entity = entity_layer.legend.find(*it);
-			if (entity != entity_layer.legend.end()) {
-				entities.emplace_back(new Entity(
-				    std::get<0>(entity->second), window, x, y,
-				    std::get<2>(entity->second),
-				    std::get<3>(entity->second)));
-
-				x = x +
-				    entities.back()
-					->get_sprite()
-					.sheet.clip_width;
-
+			auto entity_entry = entity_layer.legend.find(*it);
+			if (entity_entry != entity_layer.legend.end()) {
+				entities.emplace_back(new Entity);
+				entities.back()->sprite.from_yaml(std::get<0>(entity_entry->second), window);
+				entities.back()->sprite.rect.set_x_cord(x);
+				entities.back()->sprite.rect.set_y_cord(y);
+				x += entities.back()->get_sprite().sheet.clip_width;
 				entities.back()->yaml_attributes(
-				    std::get<1>(entity->second));
+				    std::get<1>(entity_entry->second));
 			}
 		}
 		if (*it == '\n') {
-			y = y + entity_layer.empty_h;
+			y += entity_layer.empty_h;
 			x = 0;
 		}
 		if (*it == entity_layer.empty) {
-			x = x + entity_layer.empty_w;
+			x += entity_layer.empty_w;
 		}
 	}
 }
@@ -75,9 +70,9 @@ void EntityMap::draw_entity_outlines(Window &window) {
 	}
 }
 
-void EntityMap::draw(Window &window) {
+void EntityMap::draw(Window &window, Timer &timer, Mixer &mixer) {
 	for (auto it = entities.begin(); it != entities.end(); ++it) {
-		it->get()->sprite.draw(window);
+		it->get()->sprite.draw(window, timer, mixer);
 	}
 }
 

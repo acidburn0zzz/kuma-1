@@ -19,6 +19,10 @@ Text::Text(const std::string &path, const int size, Window &window,
 
 Rect &Text::get_rect() { return rect; }
 
+std::string Text::get_text() const {
+	return inner_text;
+}
+
 void Text::set_text(const std::string &text, Window &window) {
 	if (inner_text == text) {
 		return;

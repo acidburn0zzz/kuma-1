@@ -5,8 +5,8 @@
 #include <iostream>
 #include <tuple>
 #include "drawable.h"
-#include "posable.h"
 #include "exception.h"
+#include "posable.h"
 #include "rect.h"
 #include "sdl_smart_ptr.h"
 #include "texture.h"
@@ -23,6 +23,7 @@ public:
 	void set_color(const uint8_t R, const uint8_t G, const uint8_t B,
 		       const uint8_t A);
 	void set_text(const std::string &text, Window &window);
+	std::string get_text() const;
 	void set_text_from_int(int num);
 	void set_text_from_float(float num);
 	void set(Window &window, int col_width);
@@ -31,11 +32,11 @@ public:
 	void draw(Window &window, const Timer &timer);
 	bool is_changed();
 	Rect &get_rect();
+	Rect rect;
 	Texture texture;
 
 private:
 	int column_width;
-	Rect rect;
 	std::string inner_text;
 	SDL_Color font_color;
 	SharedTextPtr font;

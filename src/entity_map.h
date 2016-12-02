@@ -15,7 +15,7 @@ public:
 	void from_yaml(std::string path, Window &window);
 	void read_yaml(std::string path);
 	void map_entities(Window &window);
-	void draw(Window &window);
+	void draw(Window &window, Timer &timer, Mixer &mixer);
 	void draw_entity_outlines(Window &window);
 	EntityMap &operator=(const EntityMap &copy);
 	EntityMap(const EntityMap &copy);

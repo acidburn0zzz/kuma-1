@@ -17,5 +17,5 @@ Tile::Tile(Texture &texture, int x, int y) {
 
 void Tile::draw(Window &window) {
 	SDL_RenderCopy(window.get_renderer(), texture.get_sdl_texture(),
-			nullptr, rect.get_sdl_rect());
+		       nullptr, rect.get_sdl_rect());
 }

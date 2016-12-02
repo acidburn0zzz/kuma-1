@@ -10,9 +10,9 @@
 
 #include "animation.h"
 #include "drawable.h"
+#include "posable.h"
 #include "rect.h"
 #include "sprite_sheet.h"
-#include "posable.h"
 #include "timer.h"
 #include "window.h"
 
@@ -36,7 +36,8 @@ public:
 	void draw(Window &window, const Timer &timer, Mixer &mixer);
 	void draw(Window &window, const Timer &timer);
 	void draw(Window &window);
-	void draw_ex(Window &window, const Timer &timer, Mixer &mixer, double angle);
+	void draw_ex(Window &window, const Timer &timer, Mixer &mixer,
+		     double angle);
 	Rect &get_rect();
 	SpriteSheet sheet;
 	std::map<std::string, Animation> animations;

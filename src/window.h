@@ -5,12 +5,12 @@
 #include <SDL_image.h>
 #include <iostream>
 #include <memory>
+#include "flip.h"
+#include "point.h"
 #include "rect.h"
 #include "script_context.h"
 #include "sdl_smart_ptr.h"
 #include "texture.h"
-#include "point.h"
-#include "flip.h"
 
 class Texture;
 

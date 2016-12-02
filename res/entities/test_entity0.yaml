@@ -1,0 +1,10 @@
+---
+from_sheet: "res/prehistoric-platformer/characters/npc/blacksmith.png"
+clip_height: 88
+clip_width: 108
+animations:
+        - name: "default"
+          range: [1, 7, 100]
+          sound: ""
+          sound-rate: 100
+...

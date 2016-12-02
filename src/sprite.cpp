@@ -36,6 +36,7 @@ void Sprite::from_yaml(const std::string &path, Window &window) {
 				animation["sound-rate"].as<int>());
 		    });
 	}
+	current = animations.begin()->second;
 }
 
 void Sprite::set_animation(const std::string name, const int begin,

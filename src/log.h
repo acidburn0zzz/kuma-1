@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 
+class DebugLoggable;
+
 class Log {
 public:
 	Log(){};
@@ -18,6 +20,10 @@ public:
 	~DebugLog() { inner_log_file.close(); };
 	void open(std::string path);
 	std::ofstream &log_file();
+	template <class T> DebugLog &operator<<(const T &line) {
+		inner_log_file << line;
+		return *this;
+	}
 
 private:
 	std::ofstream inner_log_file;

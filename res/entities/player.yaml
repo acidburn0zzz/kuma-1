@@ -2,6 +2,7 @@
 from_sheet: "res/prehistoric-platformer/characters/playable/caverman.png"
 clip_width: 97
 clip_height: 71
+attributes: "res/entities/player_attributes.yaml"
 animations:
         - name: "standing"
           range: [1, 6, 100]

@@ -15,6 +15,4 @@ int Point::get_x_cord() const { return inner.x; }
 
 int Point::get_y_cord() const { return inner.y; }
 
-SDL_Point &Point::get_sdl_point() {
-	return inner;
-}
+SDL_Point &Point::get_sdl_point() { return inner; }

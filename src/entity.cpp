@@ -106,5 +106,5 @@ void Entity::yaml_attributes(std::string path) {
 }
 
 void Entity::debug_log(DebugLog &log) {
-	log.log_file() << "Entity: " << uid << " created\n";
+	log << "Entity: " << uid << " created\n";
 }

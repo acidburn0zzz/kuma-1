@@ -73,8 +73,9 @@ void Texture::free() {
 }
 
 Texture &Texture::operator=(const Texture &copy) {
-	if (&copy == this)
+	if (&copy == this) {
 		return *this;
+	}
 	image_path = copy.image_path;
 	w = copy.w;
 	h = copy.h;

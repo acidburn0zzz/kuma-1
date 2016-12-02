@@ -34,8 +34,8 @@ Rect::Rect(int x, int y, int w, int h) {
 SDL_Rect *Rect::get_sdl_rect() { return &rect; }
 
 void Rect::draw(Window &window) {
-	SDL_SetRenderDrawColor(window.get_renderer(), rect_color.r, rect_color.g,
-			rect_color.b, rect_color.a);
+	SDL_SetRenderDrawColor(window.get_renderer(), rect_color.r,
+			       rect_color.g, rect_color.b, rect_color.a);
 	SDL_RenderDrawRect(window.get_renderer(), &rect);
 	SDL_SetRenderDrawColor(window.get_renderer(), 0x00, 0x00, 0x00, 0x00);
 }

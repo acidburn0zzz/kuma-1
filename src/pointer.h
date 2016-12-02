@@ -4,8 +4,8 @@
 #include <SDL.h>
 #include <iostream>
 #include <tuple>
-#include "posable.h"
 #include "drawable.h"
+#include "posable.h"
 #include "rect.h"
 #include "texture.h"
 

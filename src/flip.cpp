@@ -30,6 +30,4 @@ void Flippable::orientation_reset() {
 	}
 }
 
-Flip &Flippable::get_orientation() {
-	return orientation;
-}
+Flip &Flippable::get_orientation() { return orientation; }
