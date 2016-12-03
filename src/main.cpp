@@ -12,8 +12,9 @@ int main(int argc, char *argv[]) {
 	sprite.sprite.from_sheet(
 	    "res/prehistoric-platformer/characters/playable/lion.png",
 	    kuma.window, 120, 83, 0);
-	sprite.sprite.set_animation("hit", 27, 33, 100,
-			     "res/prehistoric-platformer/sound/hit-1.wav", 800);
+	sprite.sprite.set_animation(
+	    "hit", 27, 33, 100, "res/prehistoric-platformer/sound/hit-1.wav",
+	    800);
 	sprite.sprite.set_current_animation("hit");
 	sprite.sprite.rect.set_position(0, 100);
 
@@ -42,10 +43,13 @@ int main(int argc, char *argv[]) {
 	kuma.global_mixer.set_master_volume(128 / 2);
 
 	while (kuma.is_running()) {
-		display_text.set_position(20, kuma.window.get_height() - display_text.get_rect().get_height());
+		display_text.set_position(
+		    20, kuma.window.get_height() -
+			    display_text.get_rect().get_height());
 		kuma.window.render_frame();
 		kuma.global_script_context.execute();
-		kuma.global_scene_manager.render_front(kuma.window, kuma.global_timer, kuma.global_mixer);
+		kuma.global_scene_manager.render_front(
+		    kuma.window, kuma.global_timer, kuma.global_mixer);
 		// player.sprite.draw_ex(kuma.window, kuma.global_timer,
 		// kuma.global_mixer, 45);
 		player.sprite.draw(kuma.window, kuma.global_timer,
@@ -56,7 +60,8 @@ int main(int argc, char *argv[]) {
 		    kuma.window);
 		kuma.global_scene_manager.scenes.front()
 		    .entity_map.draw_entity_outlines(kuma.window);
-		sprite.sprite.draw(kuma.window, kuma.global_timer, kuma.global_mixer);
+		sprite.sprite.draw(kuma.window, kuma.global_timer,
+				   kuma.global_mixer);
 		if (SDL_PollEvent(&e)) {
 			if (e.type == SDL_QUIT) {
 				kuma.end();
@@ -65,11 +70,13 @@ int main(int argc, char *argv[]) {
 				switch (e.key.keysym.sym) {
 				case SDLK_ESCAPE:
 					kuma.global_scene_manager.next_scene(
-					    kuma.window, kuma.global_timer, kuma.global_mixer);
+					    kuma.window, kuma.global_timer,
+					    kuma.global_mixer);
 					break;
 				case SDLK_1:
 					kuma.global_scene_manager.prev_scene(
-					    kuma.window, kuma.global_timer, kuma.global_mixer);
+					    kuma.window, kuma.global_timer,
+					    kuma.global_mixer);
 					break;
 				case SDLK_q:
 					kuma.end();
@@ -84,10 +91,17 @@ int main(int argc, char *argv[]) {
 					break;
 				case SDLK_SPACE:
 					if (!kuma.global_timer.is_paused()) {
-						display_text.set_text("Press 'Q' to quit and 'Space' to pause\nPaused", kuma.window);
+						display_text.set_text(
+						    "Press 'Q' to quit and "
+						    "'Space' to pause\nPaused",
+						    kuma.window);
 						kuma.global_timer.pause();
 					} else {
-						display_text.set_text("Press 'Q' to quit and 'Space' to pause\nUnpaused", kuma.window);
+						display_text.set_text(
+						    "Press 'Q' to quit and "
+						    "'Space' to "
+						    "pause\nUnpaused",
+						    kuma.window);
 						kuma.global_timer.unpause();
 					}
 					if (!kuma.global_mixer.music_paused()) {

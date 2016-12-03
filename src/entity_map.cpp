@@ -46,10 +46,13 @@ void EntityMap::map_entities(Window &window) {
 			auto entity_entry = entity_layer.legend.find(*it);
 			if (entity_entry != entity_layer.legend.end()) {
 				entities.emplace_back(new Entity);
-				entities.back()->sprite.from_yaml(std::get<0>(entity_entry->second), window);
+				entities.back()->sprite.from_yaml(
+				    std::get<0>(entity_entry->second), window);
 				entities.back()->sprite.rect.set_x_cord(x);
 				entities.back()->sprite.rect.set_y_cord(y);
-				x += entities.back()->get_sprite().sheet.clip_width;
+				x += entities.back()
+					 ->get_sprite()
+					 .sheet.clip_width;
 				entities.back()->yaml_attributes(
 				    std::get<1>(entity_entry->second));
 			}
