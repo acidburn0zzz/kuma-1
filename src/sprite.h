@@ -41,7 +41,7 @@ public:
 	Rect &get_rect();
 	SpriteSheet sheet;
 	std::map<std::string, Animation> animations;
-	Animation current;
+	Animation *current;
 	Rect rect;
 	Sprite &operator=(const Sprite &copy);
 

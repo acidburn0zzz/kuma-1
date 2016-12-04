@@ -20,7 +20,6 @@ SRC	= ./src/animation.cpp \
 	  ./src/config.cpp \
 	  ./src/display.cpp \
 	  ./src/entity.cpp \
-	  ./src/entity_manager.cpp \
 	  ./src/entity_map.cpp \
 	  ./src/flip.cpp \
 	  ./src/game.cpp \
@@ -53,7 +52,6 @@ OBJ	= ./src/animation.o \
 	  ./src/config.o \
 	  ./src/display.o \
 	  ./src/entity.o \
-	  ./src/entity_manager.o \
 	  ./src/entity_map.o \
 	  ./src/flip.o \
 	  ./src/game.o \

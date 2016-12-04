@@ -5,7 +5,6 @@
 #include "audio/sound.h"
 #include "display.h"
 #include "entity.h"
-#include "entity_manager.h"
 #include "game.h"
 #include "init.h"
 #include "key_input.h"
