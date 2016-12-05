@@ -67,7 +67,7 @@ void Text::set(Window &window, int col_width) {
 	generate_texture(window);
 }
 
-void Text::draw(Window &window, const Timer &timer) {
+void Text::draw(Window &window, const Timer &) {
 	generate_texture(window);
 	SDL_RenderCopy(window.get_renderer(), texture.get_sdl_texture(),
 		       nullptr, rect.get_sdl_rect());

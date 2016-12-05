@@ -30,8 +30,6 @@ void Entity::read_script(std::string path) {
 
 std::string Entity::get_name() { return name; }
 
-void Entity::write_variables(ScriptContext &context) {}
-
 void Entity::set_rate(const int rate) { this->rate = rate; }
 
 void Entity::move(int constraint_x, int constraint_y, Timer &timer) {
@@ -58,13 +56,6 @@ void Entity::move(int constraint_x, int constraint_y, Timer &timer) {
 		sprite.rect.set_y_cord(sprite.rect.get_y_cord() -
 				       sprite.rect.get_y_velocity());
 	}
-}
-
-void Entity::execute_script(std::string name, std::string path,
-			    ScriptContext &context) {
-	read_script(path);
-	write_variables(context);
-	context.script(script_contents);
 }
 
 Entity &Entity::operator=(const Entity &copy) {

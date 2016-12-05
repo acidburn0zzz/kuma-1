@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "kuma.h"
 
-int main(int argc, char *argv[]) {
+int main(int, char *[]) {
 	Game kuma("data/meta/game.yaml");
 	kuma.global_script_context.open_script("src/scripts/test_main.lua");
 	kuma.global_scene_manager.scenes_from_yaml("res/test_scenes.yaml",

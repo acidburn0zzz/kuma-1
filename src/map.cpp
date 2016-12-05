@@ -53,57 +53,62 @@ void Map::sort_layers() {
 }
 
 void Map::map_tiles(Window &window) {
-	for (auto lit = layers.begin(); lit != layers.end(); ++lit) {
+	for (auto &layer : layers) {
 		// For each layer reset coordinates
 		int x = 0, y = 0;
-		// For each char (it) in `raw` string
-		for (auto it = lit->raw.cbegin(); it != lit->raw.cend(); ++it) {
+		// For each char (tile) in `raw` string
+		for (auto &tile : layer.raw) {
 			char last = '\n';
 			// Not last or `TileLayer.empty`
-			if ((*it != '\n') && (*it != lit->empty)) {
+			if ((tile != '\n') && (tile != layer.empty)) {
 				// We have a repeated tile
-				if (*it == last) {
-					lit->tiles.emplace_back(
-					    Tile(lit->tiles.back().texture,
-						 lit->tiles.back()
+				if (tile == last) {
+					layer.tiles.emplace_back(
+					    Tile(layer.tiles.back().texture,
+						 layer.tiles.back()
 						     .texture.get_width(),
-						 lit->tiles.back()
+						 layer.tiles.back()
 						     .texture.get_height()));
-					x += lit->tiles.back()
+					x += layer.tiles.back()
 						 .texture.get_width();
 				} else {
-					auto tile = lit->legend.find(*it);
+					auto tile_entry =
+					    layer.legend.find(tile);
 					// If tile is found in legend
-					if (tile != lit->legend.cend()) {
+					if (tile_entry != layer.legend.cend()) {
 						// If we have a previous tile
 						// then
 						// we know how wide it is and
 						// can set X
-						if (lit->tiles.size() > 0) {
-							lit->tiles.emplace_back(
-							    Tile(tile->second,
-								 window, x, y));
-							x += lit->tiles.back()
+						if (layer.tiles.size() > 0) {
+							layer.tiles
+							    .emplace_back(Tile(
+								tile_entry
+								    ->second,
+								window, x, y));
+							x += layer.tiles.back()
 								 .texture
 								 .get_width();
 						} else {
-							lit->tiles.emplace_back(
-							    Tile(tile->second,
-								 window, x, y));
-							x += lit->empty_w;
+							layer.tiles
+							    .emplace_back(Tile(
+								tile_entry
+								    ->second,
+								window, x, y));
+							x += layer.empty_w;
 						}
 					}
 				}
-				last = *it;
+				last = tile;
 			}
 			// char is `TileLayer.empty`
-			if (*it == lit->empty) {
-				x += lit->empty_w;
-				last = lit->empty;
+			if (tile == layer.empty) {
+				x += layer.empty_w;
+				last = layer.empty;
 			}
 			// End of one line of map
-			if (*it == '\n') {
-				y += lit->empty_h;
+			if (tile == '\n') {
+				y += layer.empty_h;
 				x = 0;
 			}
 		}
@@ -116,19 +121,17 @@ Map &Map::operator=(const Map &copy) {
 }
 
 void Map::draw(Window &window) {
-	for (auto lit = layers.begin(); lit != layers.end(); ++lit) {
-		for (auto it = lit->tiles.begin(); it != lit->tiles.end();
-		     ++it) {
-			it->draw(window);
+	for (auto &layer : layers) {
+		for (auto &tile : layer.tiles) {
+			tile.draw(window);
 		}
 	}
 }
 
 void Map::draw_tile_outlines(Window &window) {
-	for (auto lit = layers.begin(); lit != layers.end(); ++lit) {
-		for (auto it = lit->tiles.begin(); it != lit->tiles.end();
-		     ++it) {
-			it->rect.draw(window);
+	for (auto &layer : layers) {
+		for (auto &tile : layer.tiles) {
+			tile.rect.draw(window);
 		}
 	}
 }

@@ -1,3 +1,6 @@
+#include <typeinfo>
+#include <iostream>
+
 #include "entity_map.h"
 
 EntityMap::EntityMap() {}

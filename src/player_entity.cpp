@@ -5,8 +5,8 @@
 
 Player::Player() {}
 
-void Player::handle_input(Window &window, const SDL_Event &event,
-			  Timer &timer) {
+void Player::handle_input(Window &, const SDL_Event &event,
+			  Timer &) {
 	// if (timer.is_paused()) { return; }
 	if (event.type == SDL_KEYDOWN && event.key.repeat == false) {
 		switch (event.key.keysym.sym) {
