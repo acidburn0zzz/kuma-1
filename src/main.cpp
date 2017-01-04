@@ -31,6 +31,7 @@ int main(int, char *[]) {
 	player.set_rate(3);
 
 	player.debug_log(kuma.debug_log);
+	sprite.debug_log(kuma.debug_log);
 
 	kuma.global_scene_manager.map_front_scene(kuma.window);
 

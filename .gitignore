@@ -2,5 +2,6 @@
 kuma
 doc/html
 doc/latex
+tests/*
 tests/test_*
 !tests/test_*.cpp

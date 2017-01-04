@@ -59,7 +59,7 @@ void Sprite::set_animation(const std::string name, const int begin,
 }
 
 void Sprite::draw(Window &window, const Timer &timer) {
-	if (timer.get_ticks() > (last_time + current->rate)) {
+	if (timer.get_ticks() > (last_time + current->get_frame_rate())) {
 		current->next_frame();
 		last_time = timer.get_ticks();
 	}
@@ -67,11 +67,11 @@ void Sprite::draw(Window &window, const Timer &timer) {
 }
 
 void Sprite::draw(Window &window, const Timer &timer, Mixer &mixer) {
-	if (timer.get_ticks() > (last_time + current->rate)) {
+	if (timer.get_ticks() > (last_time + current->get_frame_rate())) {
 		current->next_frame();
 		last_time = timer.get_ticks();
 	}
-	if (timer.get_ticks() > (last_audio_time + current->sound_rate)) {
+	if (timer.get_ticks() > (last_audio_time + current->get_sound_rate())) {
 		current->play_sound(mixer);
 		last_audio_time = timer.get_ticks();
 	}
@@ -89,14 +89,14 @@ void Sprite::draw_ex(Window &window, const Timer &, Mixer &, double angle) {
 Rect &Sprite::get_rect() { return rect; }
 
 void Sprite::set_current_animation(std::string name) {
-	if (current->name != name) {
+	if (current->get_name() != name) {
 		current = &animations[name];
 	}
 }
 
 
 void Sprite::play_animation(std::string name) {
-	if (current->name != name) {
+	if (current->get_name() != name) {
 		current = &animations[name];
 	}
 }

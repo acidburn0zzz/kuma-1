@@ -49,7 +49,7 @@ void Map::from_yaml(std::string path, Window &window) {
 void Map::sort_layers() {
 	std::sort(
 	    layers.begin(), layers.end(),
-	    [](TileLayer &lh, TileLayer &rh) { return lh.level < rh.level; });
+	    [](TileLayer &lhs, TileLayer &rhs) { return lhs.level < rhs.level; });
 }
 
 void Map::map_tiles(Window &window) {

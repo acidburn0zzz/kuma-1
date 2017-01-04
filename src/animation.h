@@ -18,8 +18,7 @@ class Animation {
 public:
 	Animation() {}
 	Animation(const std::string name, const unsigned &rate)
-	    : name(name), rate(rate){};
-	std::string name;
+	    : name(name), frame_rate(rate){};
 	void next_frame();
 	void prev_frame();
 	void render_front(Window &window, Texture &texture, Rect &dest);
@@ -27,11 +26,16 @@ public:
 			  double angle);
 	void set_sound(std::string path, unsigned audio_rate);
 	void play_sound(Mixer &mixer);
+	std::string &get_name();
 	std::deque<Rect> frames;
-	unsigned rate;
+	unsigned get_frame_rate() const;
+	unsigned get_sound_rate() const;
 	Animation &operator=(const Animation &copy);
 	Chunk sound;
+private:
 	unsigned sound_rate = 0;
+	std::string name;
+	unsigned frame_rate;
 };
 
 #endif // _ANIMATION_H_

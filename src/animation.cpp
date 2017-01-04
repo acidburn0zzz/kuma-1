@@ -31,10 +31,22 @@ void Animation::set_sound(std::string path, unsigned audio_rate) {
 
 void Animation::play_sound(Mixer &mixer) { mixer.play(sound); }
 
+std::string &Animation::get_name() {
+	return name;
+}
+
+unsigned Animation::get_frame_rate() const {
+	return frame_rate;
+}
+
+unsigned Animation::get_sound_rate() const {
+	return sound_rate;
+}
+
 Animation &Animation::operator=(const Animation &copy) {
 	frames = copy.frames;
 	sound = copy.sound;
-	rate = copy.rate;
+	frame_rate = copy.frame_rate;
 	sound_rate = copy.sound_rate;
 	return *this;
 }
