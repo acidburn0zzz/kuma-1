@@ -65,11 +65,11 @@ public:
 	Rect &operator=(const Rect &copy);
 
 private:
-	int x_velocity;
-	int y_velocity;
+	int x_velocity = 0;
+	int y_velocity = 0;
 	SDL_Rect rect;
 	SDL_Color rect_color;
-	int x, y, w, h;
+	int x = 0, y = 0, w = 0, h = 0;
 };
 
 #endif

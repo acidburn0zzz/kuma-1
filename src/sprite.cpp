@@ -107,5 +107,6 @@ Sprite &Sprite::operator=(const Sprite &copy) {
 	sheet = copy.sheet;
 	animations = copy.animations;
 	rect = copy.rect;
+	current = copy.current;
 	return *this;
 }

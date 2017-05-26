@@ -11,7 +11,7 @@ public:
 	Scene(const Scene &copy);
 	Scene &operator=(const Scene &copy);
 	void end();
-	int order;
+	int order = 0;
 
 	std::string name;
 	EntityMap entity_map;

@@ -12,7 +12,6 @@
 class Pointer : public Drawable, Posable {
 public:
 	Pointer(std::string path, Window &window);
-	int x, y;
 	int get_x_pos();
 	int get_y_pos();
 	std::tuple<int, int> get_pos();
@@ -27,6 +26,7 @@ public:
 	Rect rect;
 
 private:
+	int x = 0, y = 0;
 };
 
 #endif

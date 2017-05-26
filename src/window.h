@@ -70,7 +70,7 @@ public:
 private:
 	void inc_frame_count();
 	int w, h;
-	unsigned frame_count;
+	unsigned frame_count = 0;
 	SharedWindowPtr window;
 	SharedRenderPtr renderer;
 };

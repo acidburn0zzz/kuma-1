@@ -10,7 +10,6 @@ public:
 	Player();
 	void handle_input(Window &window, const SDL_Event &event, Timer &timer);
 	unsigned last_time = 0;
-	unsigned rate;
 };
 
 #endif // _PLAYER_H_

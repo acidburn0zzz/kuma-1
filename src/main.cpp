@@ -7,17 +7,6 @@ int main(int, char *[]) {
 	kuma.global_script_context.open_script("src/scripts/test_main.lua");
 	kuma.global_scene_manager.scenes_from_yaml("res/test_scenes.yaml",
 						   kuma.window);
-
-	Entity sprite;
-	sprite.sprite.from_sheet(
-	    "res/prehistoric-platformer/characters/playable/lion.png",
-	    kuma.window, 120, 83, 0);
-	sprite.sprite.set_animation(
-	    "hit", 27, 33, 100, "res/prehistoric-platformer/sound/hit-1.wav",
-	    800);
-	sprite.sprite.set_current_animation("hit");
-	sprite.sprite.rect.set_position(0, 100);
-
 	Music clip("res/sound/Revolve.ogg");
 
 	SDL_Event e;
@@ -31,7 +20,6 @@ int main(int, char *[]) {
 	player.set_rate(3);
 
 	player.debug_log(kuma.debug_log);
-	sprite.debug_log(kuma.debug_log);
 
 	kuma.global_scene_manager.map_front_scene(kuma.window);
 
@@ -61,8 +49,6 @@ int main(int, char *[]) {
 		    kuma.window);
 		kuma.global_scene_manager.scenes.front()
 		    .entity_map.draw_entity_outlines(kuma.window);
-		sprite.sprite.draw(kuma.window, kuma.global_timer,
-				   kuma.global_mixer);
 		if (SDL_PollEvent(&e)) {
 			if (e.type == SDL_QUIT) {
 				kuma.end();

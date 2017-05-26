@@ -25,7 +25,7 @@ public:
 	void set_rate(const int rate);
 	void debug_log(DebugLog &log);
 	int get_uid();
-	int x_vel, y_vel;
+	int x_vel = 0, y_vel = 0;
 	Sprite &get_sprite();
 	Entity(const Entity &copy);
 	Entity &operator=(const Entity &copy);
@@ -33,13 +33,11 @@ public:
 	std::string get_name();
 	Sprite sprite;
 	std::map<std::string, std::string> attributes_map;
-	int rate;
+	int rate = 0;
 
 private:
 	unsigned last_time = 0;
-	int uid;
-	int life;
-	int damage;
+	int uid = 0;
 	std::string name;
 	void read_script(std::string path);
 	ScriptContext script;

@@ -44,7 +44,7 @@ private:
 	std::string image_path;
 	int w, h;
 	SharedTexturePtr texture;
-	Flip orientation;
+	Flip orientation = Flip::None;
 };
 
 #endif

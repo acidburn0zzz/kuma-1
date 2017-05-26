@@ -36,7 +36,7 @@ public:
 	Texture texture;
 
 private:
-	int column_width;
+	int column_width = 0;
 	std::string inner_text;
 	SDL_Color font_color;
 	SharedTextPtr font;

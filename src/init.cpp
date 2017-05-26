@@ -13,6 +13,7 @@ Init::Init() {
 Init::Init(InitFlag sys_flag, ImgInitFlag img_flag) {
 	set_init_flag = sys_flag;
 	set_img_init_flag = img_flag;
+	set_mix_init_flag = MixInitFlag::InitFlac | MixInitFlag::InitOgg;
 	init_sdl(sys_flag);
 	init_sdl_image(img_flag);
 	init_sdl_ttf();

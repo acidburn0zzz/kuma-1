@@ -21,7 +21,7 @@ public:
 	
 private:
 	SharedMusicPtr inner;
-	int channel;
+	int channel = 0;
 };
 
 class Chunk {
@@ -29,7 +29,7 @@ public:
 	Chunk() {}
 	Chunk(std::string path);
 	Mix_Chunk *get_inner();
-	int loops;
+	int loops = 0;
 	Chunk &operator=(const Chunk &copy);
 private:
 	SharedAudioPtr inner;

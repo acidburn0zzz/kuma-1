@@ -28,9 +28,9 @@ public:
 	SDL_DisplayMode inner_mode;
 
 private:
-	int display_width;
-	int display_height;
-	int display_refresh_rate;
+	int display_width = 0;
+	int display_height = 0;
+	int display_refresh_rate = 0;
 };
 
 class Displays {

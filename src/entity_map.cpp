@@ -3,7 +3,9 @@
 
 #include "entity_map.h"
 
-EntityMap::EntityMap() {}
+EntityMap::EntityMap() {
+	entity_layer = EntityLayer();
+}
 
 void EntityMap::from_yaml(std::string path, Window &window) {
 	read_yaml(path);

@@ -39,13 +39,13 @@ public:
 	int get_volume();
 	bool music_paused();
 private:
-	int volume;
+	int volume = 0;
 	void get_spec();
-	int frequency;
-	AudioFormat format;
-	AudioMode mode;
-	int mix_channels;
-	int sample_size;
+	int frequency = 0;
+	AudioFormat format = AudioFormat::U8;
+	AudioMode mode = AudioMode::Stereo;
+	int mix_channels = 0;
+	int sample_size = 0;
 };
 
 #endif

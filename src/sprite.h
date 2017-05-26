@@ -3,6 +3,7 @@
 
 #include <deque>
 #include <map>
+#include <memory>
 #include <string>
 #include <utility>
 #include <vector>
@@ -19,7 +20,7 @@
 class Sprite : public AnimatedDrawable, Posable {
 public:
 	friend class Entity;
-	Sprite(){};
+	Sprite(){ current = nullptr; };
 	void render_front(Window &window, const Timer &timer);
 	void from_sheet(const std::string path, Window &window,
 			const int clip_width, const int clip_height,

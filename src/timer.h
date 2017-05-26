@@ -29,12 +29,12 @@ public:
 
 private:
 	std::array<int, 10> frame_values;
-	unsigned prev_frame_val;
-	unsigned frames_per_sec;
-	unsigned running_time;
-	bool started;
-	bool paused;
-	bool stopped;
+	unsigned prev_frame_val = 0;
+	unsigned frames_per_sec = 0;
+	unsigned running_time = 0;
+	bool started = false;
+	bool paused = false;
+	bool stopped = false;
 	unsigned start_ticks = 0;
 	unsigned pause_ticks = 0;
 };
