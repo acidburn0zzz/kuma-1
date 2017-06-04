@@ -2,6 +2,7 @@
 #define _CONFIG_H_
 
 #include <fstream>
+#include <string>
 #include <yaml.h>
 
 #include "util.h"

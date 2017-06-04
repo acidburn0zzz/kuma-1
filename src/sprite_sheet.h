@@ -10,6 +10,8 @@
 #include "rect.h"
 #include "texture.h"
 
+class Window;
+
 enum class Order {
 	RowMajor,
 	ColumnMajor,

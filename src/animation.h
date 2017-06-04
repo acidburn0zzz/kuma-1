@@ -12,6 +12,9 @@
 #include "rect.h"
 #include "texture.h"
 
+class Mixer;
+class Rect;
+class Texture;
 class Window;
 
 class Animation {
@@ -32,6 +35,7 @@ public:
 	unsigned get_sound_rate() const;
 	Animation &operator=(const Animation &copy);
 	Chunk sound;
+
 private:
 	unsigned sound_rate = 0;
 	std::string name;

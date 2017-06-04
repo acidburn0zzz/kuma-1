@@ -1,6 +1,8 @@
 #ifndef _KUMA_H_
 #define _KUMA_H_
 
+// header
+
 #include "audio/mixer.h"
 #include "audio/sound.h"
 #include "display.h"

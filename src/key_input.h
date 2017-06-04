@@ -3,6 +3,9 @@
 
 #include <SDL.h>
 
+#include "SDL_events.h"
+#include "SDL_keycode.h"
+
 class KeyInput {
 public:
 	KeyInput() {}

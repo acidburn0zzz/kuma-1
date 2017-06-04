@@ -2,6 +2,8 @@
 #define _SCRIPT_CONTEXT_H_
 
 #include <fstream>
+#include <string>
+
 #include "sol.hpp"
 
 class ScriptContext : public sol::state {

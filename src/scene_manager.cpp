@@ -1,5 +1,12 @@
 #include "scene_manager.h"
 
+#include "node/impl.h"
+#include "node/node.h"
+#include "node/parse.h"
+#include "scene.h"
+
+class Window;
+
 SceneManager::SceneManager() {}
 
 void SceneManager::add(Scene scene) { scenes.push_back(scene); }

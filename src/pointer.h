@@ -3,11 +3,16 @@
 
 #include <SDL.h>
 #include <iostream>
+#include <string>
 #include <tuple>
+
+#include "SDL_events.h"
 #include "drawable.h"
 #include "posable.h"
 #include "rect.h"
 #include "texture.h"
+
+class Window;
 
 class Pointer : public Drawable, Posable {
 public:

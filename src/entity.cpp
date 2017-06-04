@@ -1,5 +1,16 @@
 #include "entity.h"
 
+#include <fstream>
+#include <stdint.h>
+
+#include "node/impl.h"
+#include "node/node.h"
+#include "node/parse.h"
+#include "timer.h"
+
+class RW;
+class Window;
+
 Entity::Entity() { uid = static_cast<long>(reinterpret_cast<intptr_t>(this)); }
 
 Entity::Entity(std::string path, Window &window, int x, int y, int w, int h) {

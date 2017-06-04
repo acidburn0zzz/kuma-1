@@ -3,14 +3,17 @@
 
 #include <algorithm>
 #include <deque>
+#include <string>
 #include <yaml.h>
 
 #include "exception.h"
 #include "scene.h"
 #include "window.h"
 
-class Timer;
 class Mixer;
+class Scene;
+class Timer;
+class Window;
 
 class SceneManager {
 public:

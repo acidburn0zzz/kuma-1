@@ -1,5 +1,9 @@
 #include "pointer.h"
 
+#include "SDL_mouse.h"
+
+class Window;
+
 Pointer::Pointer(std::string path, Window &window) {
 	texture.from_image(path, window);
 	SDL_ShowCursor(SDL_DISABLE);

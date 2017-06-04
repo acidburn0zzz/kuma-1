@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <fstream>
 #include <memory>
+#include <string>
 #include <vector>
 #include <yaml.h>
 
@@ -12,6 +13,8 @@
 #include "texture.h"
 #include "tile.h"
 #include "window.h"
+
+class Window;
 
 class Map : public Drawable {
 public:

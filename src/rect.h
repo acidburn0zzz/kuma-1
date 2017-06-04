@@ -3,7 +3,11 @@
 
 #include <SDL.h>
 #include <iostream>
+#include <stdint.h>
 #include <tuple>
+
+#include "SDL_pixels.h"
+#include "SDL_rect.h"
 #include "drawable.h"
 
 class Window;

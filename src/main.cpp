@@ -33,8 +33,9 @@ int main(int, char *[]) {
 
 	while (kuma.is_running()) {
 		display_text.set_position(
-		    20, kuma.window.get_height() -
-			    display_text.get_rect().get_height());
+		    20,
+		    kuma.window.get_height() -
+			display_text.get_rect().get_height());
 		kuma.window.render_frame();
 		kuma.global_script_context.execute();
 		kuma.global_scene_manager.render_front(

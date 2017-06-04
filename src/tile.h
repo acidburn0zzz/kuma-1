@@ -1,6 +1,8 @@
 #ifndef _TILE_H_
 #define _TILE_H_
 
+#include <string>
+
 #include "drawable.h"
 #include "rect.h"
 #include "texture.h"

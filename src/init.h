@@ -1,13 +1,14 @@
 #ifndef _INIT_H_
 #define _INIT_H_
 
-#include "exception.h"
-
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
 #include <iostream>
+#include <stdint.h>
+
+#include "exception.h"
 
 enum class MixInitFlag {
 	InitFlac = MIX_INIT_FLAC,

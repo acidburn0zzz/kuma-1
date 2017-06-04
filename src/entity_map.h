@@ -2,12 +2,17 @@
 #define _ENTITY_MAP_H_
 
 #include <map>
+#include <string>
 #include <tuple>
 #include <yaml.h>
 
 #include "entity.h"
 #include "layer.h"
 #include "window.h"
+
+class Mixer;
+class Timer;
+class Window;
 
 class EntityMap {
 public:

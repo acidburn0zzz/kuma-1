@@ -1,5 +1,11 @@
 #include "map.h"
 
+#include "node/impl.h"
+#include "node/node.h"
+#include "node/parse.h"
+
+class Window;
+
 Map::Map() {}
 
 Map::Map(std::string path, Window &window) { from_yaml(path, window); }
@@ -47,9 +53,10 @@ void Map::from_yaml(std::string path, Window &window) {
 }
 
 void Map::sort_layers() {
-	std::sort(
-	    layers.begin(), layers.end(),
-	    [](TileLayer &lhs, TileLayer &rhs) { return lhs.level < rhs.level; });
+	std::sort(layers.begin(), layers.end(),
+		  [](TileLayer &lhs, TileLayer &rhs) {
+			  return lhs.level < rhs.level;
+		  });
 }
 
 void Map::map_tiles(Window &window) {

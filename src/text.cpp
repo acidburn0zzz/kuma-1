@@ -1,5 +1,10 @@
 #include "text.h"
 
+#include "util.h"
+
+class Timer;
+class Window;
+
 Text::Text() {}
 
 Text::Text(const std::string &path, const int size) { open_font(path, size); }

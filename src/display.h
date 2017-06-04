@@ -6,6 +6,8 @@
 #include <map>
 #include <tuple>
 
+#include "SDL_video.h"
+
 /// Class to wrap around `SDL_DisplayMode`. Used for accessing information about
 /// a display
 class DisplayMode {

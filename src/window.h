@@ -5,6 +5,12 @@
 #include <SDL_image.h>
 #include <iostream>
 #include <memory>
+#include <stdint.h>
+#include <string>
+#include <tuple>
+
+#include "SDL_render.h"
+#include "SDL_video.h"
 #include "flip.h"
 #include "point.h"
 #include "rect.h"
@@ -12,6 +18,7 @@
 #include "sdl_smart_ptr.h"
 #include "texture.h"
 
+class ScriptContext;
 class Texture;
 
 enum class WindowFlag {

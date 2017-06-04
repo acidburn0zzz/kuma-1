@@ -1,14 +1,18 @@
 #ifndef _MIXER_H_
 #define _MIXER_H_
 
-#include "exception.h"
-#include "sdl_smart_ptr.h"
-#include "util.h"
-#include "sound.h"
-
-#include <iostream>
 #include <SDL.h>
 #include <SDL_mixer.h>
+#include <iostream>
+
+#include "SDL_audio.h"
+#include "exception.h"
+#include "sdl_smart_ptr.h"
+#include "sound.h"
+#include "util.h"
+
+class Chunk;
+class Music;
 
 enum class AudioMode {
 	Mono = 1,
@@ -38,6 +42,7 @@ public:
 	void resume_music();
 	int get_volume();
 	bool music_paused();
+
 private:
 	int volume = 0;
 	void get_spec();

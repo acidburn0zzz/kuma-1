@@ -1,5 +1,9 @@
 #include "config.h"
+
+#include <fstream>
+
 #include "display.h"
+#include "node/node.h"
 
 void Config::from_yaml(std::string path) {
 	YAML::Node from = YAML::LoadFile(path);

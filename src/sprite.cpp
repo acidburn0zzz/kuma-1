@@ -1,5 +1,14 @@
 #include "sprite.h"
 
+#include "animation.h"
+#include "node/impl.h"
+#include "node/node.h"
+#include "node/parse.h"
+#include "timer.h"
+
+class Mixer;
+class Window;
+
 void Sprite::from_sheet(const std::string path, Window &window, int clip_width,
 			int clip_height, int margin) {
 	sheet = SpriteSheet(path, window, clip_width, clip_height, margin);

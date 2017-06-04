@@ -1,11 +1,11 @@
-#include <typeinfo>
-#include <iostream>
-
 #include "entity_map.h"
+#include "node/node.h"
 
-EntityMap::EntityMap() {
-	entity_layer = EntityLayer();
-}
+class Mixer;
+class Timer;
+class Window;
+
+EntityMap::EntityMap() { entity_layer = EntityLayer(); }
 
 void EntityMap::from_yaml(std::string path, Window &window) {
 	read_yaml(path);

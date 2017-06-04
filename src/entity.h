@@ -4,13 +4,20 @@
 #include <SDL.h>
 #include <fstream>
 #include <iostream>
+#include <string>
 #include <yaml.h>
+
+#include "SDL_render.h"
 #include "log.h"
 #include "rect.h"
 #include "rw.h"
 #include "script_context.h"
 #include "sprite.h"
 #include "window.h"
+
+class RW;
+class Timer;
+class Window;
 
 class Entity : public DebugLoggable {
 public:

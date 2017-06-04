@@ -3,7 +3,11 @@
 
 #include <SDL_ttf.h>
 #include <iostream>
+#include <stdint.h>
+#include <string>
 #include <tuple>
+
+#include "SDL_pixels.h"
 #include "drawable.h"
 #include "exception.h"
 #include "posable.h"
@@ -12,6 +16,9 @@
 #include "texture.h"
 #include "util.h"
 #include "window.h"
+
+class Timer;
+class Window;
 
 class Text : public AnimatedDrawable, Posable {
 public:

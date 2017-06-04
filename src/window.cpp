@@ -1,5 +1,7 @@
 #include "window.h"
 
+class ScriptContext;
+
 Window::Window() {}
 
 Window::Window(std::string title, int x, int y, int w, int h) {

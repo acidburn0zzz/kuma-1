@@ -17,10 +17,15 @@
 #include "timer.h"
 #include "window.h"
 
+class Animation;
+class Mixer;
+class Timer;
+class Window;
+
 class Sprite : public AnimatedDrawable, Posable {
 public:
 	friend class Entity;
-	Sprite(){ current = nullptr; };
+	Sprite() { current = nullptr; };
 	void render_front(Window &window, const Timer &timer);
 	void from_sheet(const std::string path, Window &window,
 			const int clip_width, const int clip_height,

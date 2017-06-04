@@ -3,6 +3,8 @@
 
 #include <SDL.h>
 
+#include "SDL_rect.h"
+
 class Point {
 public:
 	Point(const int x, const int y);

@@ -1,5 +1,12 @@
 #include "init.h"
 
+#include <string>
+
+#include "SDL.h"
+#include "SDL_image.h"
+#include "SDL_mixer.h"
+#include "SDL_ttf.h"
+
 Init::Init() {
 	set_init_flag = InitFlag::InitEverything;
 	set_img_init_flag = ImgInitFlag::InitAll;

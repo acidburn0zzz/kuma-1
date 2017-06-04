@@ -1,5 +1,7 @@
 #include "rw.h"
 
+struct SDL_RWops;
+
 void RW::from_mem(void *mem) {
 	inner = SharedRWPtr(SDL_RWFromMem(mem, sizeof(mem)));
 }

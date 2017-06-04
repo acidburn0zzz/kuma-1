@@ -1,9 +1,12 @@
 #ifndef _RW_H_
 #define _RW_H_
 
+#include <SDL.h>
+#include <string>
+
 #include "sdl_smart_ptr.h"
 
-#include <SDL.h>
+struct SDL_RWops;
 
 class RW {
 public:

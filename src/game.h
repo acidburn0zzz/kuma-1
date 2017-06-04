@@ -1,6 +1,7 @@
 #ifndef _GAME_H_
 #define _GAME_H_
 
+#include <string>
 #include <yaml.h>
 
 #include "audio/mixer.h"

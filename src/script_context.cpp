@@ -1,5 +1,7 @@
 #include "script_context.h"
 
+#include <fstream>
+
 void ScriptContext::open_script(std::string script) {
 	open_libraries();
 	std::string script_contents;

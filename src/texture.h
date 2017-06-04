@@ -4,7 +4,10 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <iostream>
+#include <string>
 #include <tuple>
+
+#include "SDL_render.h"
 #include "exception.h"
 #include "flip.h"
 #include "rw.h"
@@ -12,6 +15,7 @@
 #include "util.h"
 #include "window.h"
 
+class RW;
 class Window;
 
 class Texture {

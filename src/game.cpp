@@ -1,5 +1,7 @@
 #include "game.h"
 
+#include "node/node.h"
+
 Game::Game(std::string path) {
 	YAML::Node from = YAML::LoadFile(path);
 	if (from["name"]) {

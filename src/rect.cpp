@@ -1,4 +1,6 @@
 #include "rect.h"
+
+#include "SDL_render.h"
 #include "window.h"
 
 Rect::Rect() {

@@ -1,5 +1,7 @@
 #include "sprite_sheet.h"
 
+class Window;
+
 SpriteSheet::SpriteSheet(const std::string &path, Window &window,
 			 const int clip_width, const int clip_height,
 			 const int margin) {

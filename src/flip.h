@@ -3,6 +3,8 @@
 
 #include <SDL.h>
 
+#include "SDL_render.h"
+
 enum Flip {
 	None = SDL_FLIP_NONE,
 	Horizontal = SDL_FLIP_HORIZONTAL,

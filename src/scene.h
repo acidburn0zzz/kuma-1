@@ -1,6 +1,8 @@
 #ifndef _SCENE_H_
 #define _SCENE_H_
 
+#include <string>
+
 #include "entity_map.h"
 #include "map.h"
 #include "script_context.h"
