@@ -1,5 +1,7 @@
 #include "flip.h"
 
+using namespace kuma;
+
 void Flippable::flip_vertical() {
 	if (orientation != Flip::Vertical) {
 		orientation = Flip::Vertical;

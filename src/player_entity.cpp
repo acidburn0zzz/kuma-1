@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <tuple>
+using namespace kuma;
 
 Player::Player() {}
 

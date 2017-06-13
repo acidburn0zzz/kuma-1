@@ -8,18 +8,20 @@
 #include <sys/types.h>
 #include <vector>
 
-class UserFiles {
-public:
-	UserFiles() {}
-	~UserFiles() {}
-	UserFiles(std::string org_name, std::string game_name);
-	std::string get_path();
-	void set_dir(std::string org_name, std::string game_name);
-	void create_dir();
-	SharedRWPtr rw;
+namespace kuma {
+	class UserFiles {
+	public:
+		UserFiles() {}
+		~UserFiles() {}
+		UserFiles(std::string org_name, std::string game_name);
+		std::string get_path();
+		void set_dir(std::string org_name, std::string game_name);
+		void create_dir();
+		SharedRWPtr rw;
 
-private:
-	std::string save_dir;
-};
+	private:
+		std::string save_dir;
+	};
+}
 
 #endif

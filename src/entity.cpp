@@ -8,6 +8,8 @@
 #include "node/parse.h"
 #include "timer.h"
 
+using namespace kuma;
+
 class RW;
 class Window;
 

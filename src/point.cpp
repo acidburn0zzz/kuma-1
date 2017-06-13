@@ -1,5 +1,6 @@
 #include "point.h"
 
+using namespace kuma;
 Point::Point(const int x, const int y) { set_position(x, y); }
 
 void Point::set_x_cord(const int x) { inner.x = x; }

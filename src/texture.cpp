@@ -3,6 +3,8 @@
 #include "rw.h"
 #include "util.h"
 
+using namespace kuma;
+
 Texture::Texture() {}
 
 Texture::Texture(std::string path, Window &window) {

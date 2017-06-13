@@ -2,6 +2,7 @@
 
 #include "SDL_mixer.h"
 
+using namespace kuma;
 Music::Music() {}
 
 Music::Music(std::string path) {

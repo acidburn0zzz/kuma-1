@@ -6,6 +6,7 @@
 #include "SDL_mixer.h"
 #include "audio/sound.h"
 
+using namespace kuma;
 Mixer::Mixer() {
 	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) != 0) {
 		std::string sdl_error = Mix_GetError();

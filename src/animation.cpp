@@ -4,8 +4,9 @@ class Mixer;
 class Rect;
 class Texture;
 
+using namespace kuma;
+
 void Animation::next_frame() {
-	//
 	frames.push_back(frames.front());
 	frames.pop_front();
 }
@@ -19,7 +20,6 @@ void Animation::render_front(Window &window, Texture &texture, Rect &dest) {
 	SDL_RenderCopy(window.get_renderer(), texture.get_sdl_texture(),
 		       frames.front().get_sdl_rect(), dest.get_sdl_rect());
 }
-
 
 void Animation::render_front(Window &window, Texture &texture, Rect &dest,
 			     double angle) {

@@ -6,6 +6,7 @@
 #include "node/parse.h"
 #include "timer.h"
 
+using namespace kuma;
 class Mixer;
 class Window;
 
@@ -102,7 +103,6 @@ void Sprite::set_current_animation(std::string name) {
 		current = &animations[name];
 	}
 }
-
 
 void Sprite::play_animation(std::string name) {
 	if (current->get_name() != name) {

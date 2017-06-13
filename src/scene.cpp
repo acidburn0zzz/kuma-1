@@ -1,5 +1,6 @@
 #include "scene.h"
 
+using namespace kuma;
 Scene::Scene() {}
 
 Scene::Scene(const Scene &copy) {

@@ -1,6 +1,8 @@
 #include "entity_map.h"
 #include "node/node.h"
 
+using namespace kuma;
+
 class Mixer;
 class Timer;
 class Window;
@@ -57,7 +59,7 @@ void EntityMap::map_entities(Window &window) {
 				entities.back()->sprite.rect.set_y_cord(y);
 				x += entities.back()
 					 ->get_sprite()
-					 .sheet.clip_width;
+					 .sheet.clip_width();
 				entities.back()->yaml_attributes(
 				    std::get<1>(entity_entry->second));
 			}

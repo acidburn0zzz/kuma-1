@@ -7,6 +7,8 @@
 #include "SDL_mixer.h"
 #include "SDL_ttf.h"
 
+using namespace kuma;
+
 Init::Init() {
 	set_init_flag = InitFlag::InitEverything;
 	set_img_init_flag = ImgInitFlag::InitAll;

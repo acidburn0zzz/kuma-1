@@ -8,18 +8,20 @@
 
 struct SDL_RWops;
 
-class RW {
-public:
-	RW() {}
-	void from_mem(void *mem);
-	void from_mem(const void *mem);
-	void from_file(std::string path, std::string mode);
-	SDL_RWops *get();
-	RW(const RW &copy);
-	RW &operator=(const RW &copy);
+namespace kuma {
+	class RW {
+	public:
+		RW() {}
+		void from_mem(void *mem);
+		void from_mem(const void *mem);
+		void from_file(std::string path, std::string mode);
+		SDL_RWops *get();
+		RW(const RW &copy);
+		RW &operator=(const RW &copy);
 
-private:
-	SharedRWPtr inner;
-};
+	private:
+		SharedRWPtr inner;
+	};
+}
 
 #endif

@@ -1,5 +1,7 @@
 #include "display.h"
 
+using namespace kuma;
+
 DisplayMode::DisplayMode(const SDL_DisplayMode mode) { inner_mode = mode; }
 
 std::tuple<int, int> DisplayMode::get_dimensions() const {

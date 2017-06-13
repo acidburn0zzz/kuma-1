@@ -1,11 +1,13 @@
 #include "window.h"
 
+using namespace kuma;
 class ScriptContext;
 
 Window::Window() {}
 
 Window::Window(std::string title, int x, int y, int w, int h) {
-	window = set_window(title, x, y, w, h, WindowFlag::Shown);
+	window = set_window(title, x, y, w, h,
+			    WindowFlag::Shown | WindowFlag::OpenGl);
 	renderer = set_renderer(RenderFlag::Accelerated);
 	SDL_RenderSetLogicalSize(renderer.get(), w, h);
 }

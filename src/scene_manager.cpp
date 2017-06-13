@@ -5,6 +5,7 @@
 #include "node/parse.h"
 #include "scene.h"
 
+using namespace kuma;
 class Window;
 
 SceneManager::SceneManager() {}

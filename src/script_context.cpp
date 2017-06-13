@@ -2,6 +2,7 @@
 
 #include <fstream>
 
+using namespace kuma;
 void ScriptContext::open_script(std::string script) {
 	open_libraries();
 	std::string script_contents;

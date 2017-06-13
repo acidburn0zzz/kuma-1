@@ -1,6 +1,7 @@
 #include "game.h"
 
 #include "node/node.h"
+using namespace kuma;
 
 Game::Game(std::string path) {
 	YAML::Node from = YAML::LoadFile(path);

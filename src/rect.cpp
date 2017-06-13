@@ -2,6 +2,7 @@
 
 #include "SDL_render.h"
 #include "window.h"
+using namespace kuma;
 
 Rect::Rect() {
 	rect.x = 0;
@@ -85,7 +86,7 @@ void Rect::set_width(const int w) { rect.w = w; }
 
 void Rect::set_height(const int h) { rect.h = h; }
 
-std::tuple<int, int> Rect::get_dimensions() {
+std::tuple<int, int> Rect::get_dimensions() const {
 	return std::make_tuple(rect.w, rect.h);
 }
 
@@ -107,6 +108,10 @@ Rect &Rect::operator=(const Rect &copy) {
 	h = copy.h;
 	rect_color = copy.rect_color;
 	return *this;
+}
+
+bool Rect::operator!=(const Rect &other) const {
+	return this->get_position() != other.get_position() && this->get_dimensions() != other.get_dimensions();
 }
 
 void Rect::set_velocities(const int x, const int y) {

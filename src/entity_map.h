@@ -10,23 +10,25 @@
 #include "layer.h"
 #include "window.h"
 
-class Mixer;
-class Timer;
-class Window;
+namespace kuma {
+	class Mixer;
+	class Timer;
+	class Window;
 
-class EntityMap {
-public:
-	EntityMap();
-	void from_yaml(std::string path, Window &window);
-	void read_yaml(std::string path);
-	void map_entities(Window &window);
-	void draw(Window &window, Timer &timer, Mixer &mixer);
-	void draw_entity_outlines(Window &window);
-	EntityMap &operator=(const EntityMap &copy);
-	EntityMap(const EntityMap &copy);
+	class EntityMap {
+	public:
+		EntityMap();
+		void from_yaml(std::string path, Window &window);
+		void read_yaml(std::string path);
+		void map_entities(Window &window);
+		void draw(Window &window, Timer &timer, Mixer &mixer);
+		void draw_entity_outlines(Window &window);
+		EntityMap &operator=(const EntityMap &copy);
+		EntityMap(const EntityMap &copy);
 
-	std::vector<std::shared_ptr<Entity>> entities;
-	EntityLayer entity_layer;
-};
+		std::vector<std::shared_ptr<Entity>> entities;
+		EntityLayer entity_layer;
+	};
+}
 
 #endif

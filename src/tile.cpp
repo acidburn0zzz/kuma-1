@@ -1,5 +1,6 @@
 #include "tile.h"
 
+using namespace kuma;
 Tile::Tile(std::string path, Window &window, int x, int y) {
 	texture.from_image(path, window);
 	rect.set_dimensions(

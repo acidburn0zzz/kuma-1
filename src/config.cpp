@@ -5,6 +5,8 @@
 #include "display.h"
 #include "node/node.h"
 
+using namespace kuma;
+
 void Config::from_yaml(std::string path) {
 	YAML::Node from = YAML::LoadFile(path);
 	Displays displays;

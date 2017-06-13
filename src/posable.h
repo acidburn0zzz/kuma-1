@@ -3,9 +3,11 @@
 
 #include "rect.h"
 
-class Posable {
-public:
-	virtual Rect &get_rect() = 0;
-};
+namespace kuma {
+	class Posable {
+	public:
+		virtual Rect &get_rect() = 0;
+	};
+}
 
 #endif // _POSABLE_H_

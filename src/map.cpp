@@ -3,6 +3,7 @@
 #include "node/impl.h"
 #include "node/node.h"
 #include "node/parse.h"
+using namespace kuma;
 
 class Window;
 

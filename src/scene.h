@@ -7,18 +7,20 @@
 #include "map.h"
 #include "script_context.h"
 
-class Scene {
-public:
-	Scene();
-	Scene(const Scene &copy);
-	Scene &operator=(const Scene &copy);
-	void end();
-	int order = 0;
+namespace kuma {
+	class Scene {
+	public:
+		Scene();
+		Scene(const Scene &copy);
+		Scene &operator=(const Scene &copy);
+		void end();
+		int order = 0;
 
-	std::string name;
-	EntityMap entity_map;
-	Map map;
-	ScriptContext scene_context;
-};
+		std::string name;
+		EntityMap entity_map;
+		Map map;
+		ScriptContext scene_context;
+	};
+}
 
 #endif // _SCENE_H_

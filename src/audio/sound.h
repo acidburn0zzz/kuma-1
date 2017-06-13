@@ -12,30 +12,32 @@
 #include "util.h"
 
 // Sound takes any compressed audio format
-class Music {
-public:
-	Music();
-	Music(std::string path);
-	Mix_Music *get_inner();
-	void set_position(int chan, uint16_t angle, uint8_t dist);
-	int loops;
-	Music &operator=(const Music &copy);
+namespace kuma {
+	class Music {
+	public:
+		Music();
+		Music(std::string path);
+		Mix_Music *get_inner();
+		void set_position(int chan, uint16_t angle, uint8_t dist);
+		int loops;
+		Music &operator=(const Music &copy);
 
-private:
-	SharedMusicPtr inner;
-	int channel = 0;
-};
+	private:
+		SharedMusicPtr inner;
+		int channel = 0;
+	};
 
-class Chunk {
-public:
-	Chunk() {}
-	Chunk(std::string path);
-	Mix_Chunk *get_inner();
-	int loops = 0;
-	Chunk &operator=(const Chunk &copy);
+	class Chunk {
+	public:
+		Chunk() {}
+		Chunk(std::string path);
+		Mix_Chunk *get_inner();
+		int loops = 0;
+		Chunk &operator=(const Chunk &copy);
 
-private:
-	SharedAudioPtr inner;
-};
+	private:
+		SharedAudioPtr inner;
+	};
+}
 
 #endif

@@ -2,6 +2,7 @@
 
 #include "SDL_mouse.h"
 
+using namespace kuma;
 class Window;
 
 Pointer::Pointer(std::string path, Window &window) {

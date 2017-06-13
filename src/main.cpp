@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "kuma.h"
 
+using namespace kuma;
 int main(int, char *[]) {
 	Game kuma("data/meta/game.yaml");
 	kuma.global_script_context.open_script("src/scripts/test_main.lua");

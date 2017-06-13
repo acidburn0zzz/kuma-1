@@ -3,6 +3,7 @@
 #include <sys/stat.h>
 
 #include "SDL_stdinc.h"
+using namespace kuma;
 
 UserFiles::UserFiles(std::string org_name, std::string game_name) {
 	set_dir(org_name, game_name);

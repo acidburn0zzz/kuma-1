@@ -2,6 +2,7 @@
 
 #include "util.h"
 
+using namespace kuma;
 class Timer;
 class Window;
 

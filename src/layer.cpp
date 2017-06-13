@@ -1,4 +1,5 @@
 #include "layer.h"
+using namespace kuma;
 
 TileLayer &TileLayer::operator=(const TileLayer &copy) {
 	level = copy.level;

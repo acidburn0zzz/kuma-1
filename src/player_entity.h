@@ -4,12 +4,15 @@
 #include "entity.h"
 #include "texture.h"
 
-class Player : public Entity {
-public:
-	using Entity::Entity;
-	Player();
-	void handle_input(Window &window, const SDL_Event &event, Timer &timer);
-	unsigned last_time = 0;
-};
+namespace kuma {
+	class Player : public Entity {
+	public:
+		using Entity::Entity;
+		Player();
+		void handle_input(Window &window, const SDL_Event &event,
+				  Timer &timer);
+		unsigned last_time = 0;
+	};
+}
 
 #endif // _PLAYER_H_

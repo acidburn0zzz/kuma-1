@@ -2,6 +2,8 @@
 
 #include "SDL_timer.h"
 
+using namespace kuma;
+
 Timer::Timer() { start(); }
 
 unsigned Timer::get_running_time() const { return SDL_GetTicks(); }
@@ -61,9 +63,15 @@ void Timer::print_counter() {
 
 void Timer::start() {
 	started = true;
+	stopped = false;
 	paused = false;
 	start_ticks = SDL_GetTicks();
 	pause_ticks = 0.00;
+}
+
+void Timer::stop() {
+	started = false;
+	stopped = true;
 }
 
 void Timer::pause() {
@@ -77,7 +85,6 @@ void Timer::unpause() {
 	pause_ticks = 0.00;
 	start_ticks = pause_ticks;
 }
-
 
 bool Timer::is_started() const { return started; }
 
