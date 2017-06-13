@@ -1,7 +1,0 @@
----
-lang: cpp
-comp: g++
-cflags: std=c++11
-incdir: ../src /usr/include/SDL2
-libs: SDL2 SDL2_image SDL2_ttf lua
-...

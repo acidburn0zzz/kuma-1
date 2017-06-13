@@ -1,108 +1,23 @@
-[linux-debug.project]
+[project]
 name = "kuma"
-target = ["kuma"]
-lang = "cpp"
+file-extensions = ["cpp"]
 compiler = "g++"
-cflags = ["std=c++14", "O0", "Wall", "Wextra", "g", "D_DEBUG_"]
-inc = ["src","`pkg-config --cflags sdl2 lua`", "/usr/include/yaml-cpp", "third_party/sol2/single/sol"]
-libs = [
-	"`pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer lua yaml-cpp`",
+compiler-flags = ["std=c++14", "O0", "Wall", "Wextra", "pedantic-errors", "g", "D_DEBUG_"]
+include = ["src","`pkg-config --cflags sdl2 lua5.3`", "/usr/include/yaml-cpp", "third_party/sol2/single/sol"]
+libraries = [
+	"`pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer lua5.3 yaml-cpp`"
 ]
 ignore = [
-	"tests/",
-	"src/scratch.cpp",
-	"src/scratch0.cpp",
-	"third_party/",
-]
-clean = [
-	'-r doc/html doc/latex',
-]
-static_lib = false
-
-[linux-rel.project]
-name = "kuma"
-target = ["kuma"]
-lang = "cpp"
-compiler = "g++"
-cflags = ["std=c++11", "O2", "Wall", "Wextra", "D_REL_"]
-inc = ["src","`pkg-config --cflags sdl2 lua`", "/usr/include/yaml-cpp", "third_party/sol2/single/sol"]
-libs = [
-	"`pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer lua yaml-cpp`",
-]
-ignore = [
-	"tests/",
-	"src/scratch.cpp",
-	"src/scratch0.cpp",
-	"third_party/",
-]
-clean = [
-	'-r doc/html doc/latex',
-]
-static_lib = false
-
-[all.doc]
-doc = [
-	"doxygen doc/doxygen.conf",
-	"cp doc/doxy-boot.js doc/html/",
-]
-
-[static_lib.project]
-name = "kuma"
-static_lib = true
-arflags = "rcs"
-target = ["libkuma.a"]
-lang = "cpp"
-comp = "g++"
-cflags = ["std=c++11", "O2", "Wall", "Wextra", "static"]
-inc = ["src","`pkg-config --cflags sdl2 lua`", "/usr/include/yaml-cpp", "third_party/sol2"]
-libs = [
-	"`pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer lua yaml-cpp`",
-]
-ignore = [
-	"src/main.cpp",
-	"src/scratch.cpp",
 	"tests/",
 	"third_party/",
 ]
 
-[windows-x86_64.project]
+[[bin]]
 name = "kuma"
-lang = "cpp"
-compiler = "x86_64-w64-mingw32-g++"
-cflags = ["std=c++11"]
-inc = [
-	"src",
-	"`x86_64-w64-mingw32-pkg-config --cflags sdl2`",
-]
-libs = [
-	"`x86_64-w64-mingw32-pkg-config --libs sdl2`",
-	"mingw32",
-	"SDL2_image",
-	"SDL2_ttf",
-	"lua",
-]
-lib_dir = ["/usr/x86_64-w64-mingw32/lib",]
-ignore = [
-	"tests/",
-]
+path = "src/main.cpp"
 
-[windows-i686.project]
-name = "kuma"
-lang = "cpp"
-compiler = "i686-w64-mingw32-g++"
-cflags = ["std=c++11"]
-inc = [
-	"src",
-	"`i686-w64-mingw32-pkg-config --cflags sdl2`",
-]
-libs = [
-	"`i686-w64-mingw32-pkg-config --libs sdl2`",
-	"mingw32",
-	"SDL2_image",
-	"SDL2_ttf",
-	"lua",
-]
-lib_dir = ["/usr/i686-w64-mingw32/lib",]
-ignore = [
-	"tests/",
+[[lib]]
+name = "libkuma"
+types = [
+	"static"
 ]

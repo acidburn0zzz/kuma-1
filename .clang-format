@@ -6,8 +6,9 @@ AllowShortIfStatementsOnASingleLine: false
 IndentCaseLabels: false
 AccessModifierOffset: -8
 SpacesInParentheses: false
-MaxEmptyLinesToKeep: 2
+MaxEmptyLinesToKeep: 1
 PointerAlignment: Right
+NamespaceIndentation: All
 IncludeCategories:
   - Regex: '^(<SDL)'
     Priority: 1

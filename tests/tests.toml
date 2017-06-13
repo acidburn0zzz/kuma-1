@@ -1,19 +1,24 @@
-[linux.project]
+[project]
 name = "kuma_tests"
 compiler = "g++"
-target = ["test_display", "test_window"]
-lang = "cpp"
-cflags = ["std=c++11", "O2", "Wall", "Wextra", "static"]
-inc = ["../src","catch","`pkg-config --cflags sdl2 lua5.3`", "/usr/include/yaml-cpp", ]
-libs = [
+file-extensions = ["cpp"]
+compiler-flags = ["std=c++14", "O2", "Wall", "Wextra", "Wpedantic"]
+include = ["../src","catch","`pkg-config --cflags sdl2 lua5.3`", "/usr/include/yaml-cpp", "../third_party/sol2/single/sol"]
+libraries = [
 	"kuma",
 	"`pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer lua5.3 yaml-cpp`",
 ]
-lib_dir = ["../"]
-static_lib = false
+library-directories = ["../"]
 
-[linux.doc]
-doc = [
-	"valgrind ./test_window",
+after-script = [
 	"valgrind ./test_display",
+	"valgrind ./test_window"
 ]
+
+[[bin]]
+name = "test_display"
+path = "src/test_display.cpp"
+
+[[bin]]
+name = "test_window"
+path = "src/test_window.cpp"

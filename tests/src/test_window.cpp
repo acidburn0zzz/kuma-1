@@ -5,6 +5,8 @@
 
 #include <tuple>
 
+using namespace kuma;
+
 TEST_CASE("OK", "OK") {
 	Init init(InitFlag::InitTimer, ImgInitFlag::InitPng);
 	Window window("Test", 0, 0, 100, 100);
