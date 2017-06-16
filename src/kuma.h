@@ -8,6 +8,7 @@
 #include "display.h"
 #include "entity.h"
 #include "game.h"
+#include "glcontext.h"
 #include "init.h"
 #include "key_input.h"
 #include "map.h"

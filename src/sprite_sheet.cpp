@@ -67,14 +67,8 @@ void SpriteSheet::set_cells(const Order order) {
 	}
 }
 
-int SpriteSheet::clip_width() const {
-	return clip_width_;
-}
+int SpriteSheet::clip_width() const { return clip_width_; }
 
-int SpriteSheet::clip_height() const {
-	return clip_height_;
-}
+int SpriteSheet::clip_height() const { return clip_height_; }
 
-int SpriteSheet::clip_margin() const {
-	return margin_;
-}
+int SpriteSheet::clip_margin() const { return margin_; }

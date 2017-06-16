@@ -111,7 +111,8 @@ Rect &Rect::operator=(const Rect &copy) {
 }
 
 bool Rect::operator!=(const Rect &other) const {
-	return this->get_position() != other.get_position() && this->get_dimensions() != other.get_dimensions();
+	return this->get_position() != other.get_position() &&
+	       this->get_dimensions() != other.get_dimensions();
 }
 
 void Rect::set_velocities(const int x, const int y) {

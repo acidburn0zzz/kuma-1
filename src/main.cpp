@@ -12,6 +12,8 @@ int main(int, char *[]) {
 
 	SDL_Event e;
 
+	GLContext context(kuma.window);
+
 	Player player;
 	player.sprite.from_yaml("res/entities/player.yaml", kuma.window);
 	player.sprite.rect.set_dimensions(97, 71);

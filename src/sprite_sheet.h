@@ -34,6 +34,7 @@ namespace kuma {
 		Texture texture;
 		std::vector<Rect> cells;
 		Rect all;
+
 	private:
 		int clip_height_;
 		int clip_width_;
