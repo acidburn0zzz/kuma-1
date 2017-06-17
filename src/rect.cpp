@@ -37,14 +37,13 @@ Rect::Rect(int x, int y, int w, int h) {
 SDL_Rect *Rect::get_sdl_rect() { return &rect; }
 
 void Rect::draw(Window &window) {
-	SDL_SetRenderDrawColor(window.get_renderer(), rect_color.r,
-			       rect_color.g, rect_color.b, rect_color.a);
+	SDL_SetRenderDrawColor(window.get_renderer(), rect_color.r, rect_color.g, rect_color.b,
+	                       rect_color.a);
 	SDL_RenderDrawRect(window.get_renderer(), &rect);
 	SDL_SetRenderDrawColor(window.get_renderer(), 0x00, 0x00, 0x00, 0x00);
 }
 
-void Rect::set_outline_color(const uint8_t R, const uint8_t G, const uint8_t B,
-			     const uint8_t A) {
+void Rect::set_outline_color(const uint8_t R, const uint8_t G, const uint8_t B, const uint8_t A) {
 	rect_color.r = R;
 	rect_color.g = G;
 	rect_color.b = B;
@@ -54,50 +53,68 @@ void Rect::set_outline_color(const uint8_t R, const uint8_t G, const uint8_t B,
 void Rect::reset_position() {
 	rect.x = 0;
 	rect.y = 0;
+	x = 0;
+	y = 0;
 }
 
 void Rect::set_position(const int x, const int y) {
 	rect.x = x;
 	rect.y = y;
+	this->x = x;
+	this->y = y;
 }
 
 void Rect::set_position(const std::tuple<int, int> pos) {
 	rect.x = std::get<0>(pos);
 	rect.y = std::get<1>(pos);
+	x = std::get<0>(pos);
+	y = std::get<1>(pos);
 }
 
 int Rect::get_x_cord() { return rect.x; }
 
 int Rect::get_y_cord() { return rect.y; }
 
-void Rect::set_x_cord(const int x) { rect.x = x; }
-
-void Rect::set_y_cord(const int y) { rect.y = y; }
-
-std::tuple<int, int> Rect::get_position() const {
-	return std::make_tuple(rect.x, rect.y);
+void Rect::set_x_cord(const int x) {
+	rect.x = x;
+	this->x = x;
 }
+
+void Rect::set_y_cord(const int y) {
+	rect.y = y;
+	this->y = y;
+}
+
+std::tuple<int, int> Rect::get_position() const { return std::make_tuple(rect.x, rect.y); }
 
 int Rect::get_width() { return rect.w; }
 
 int Rect::get_height() { return rect.h; }
 
-void Rect::set_width(const int w) { rect.w = w; }
-
-void Rect::set_height(const int h) { rect.h = h; }
-
-std::tuple<int, int> Rect::get_dimensions() const {
-	return std::make_tuple(rect.w, rect.h);
+void Rect::set_width(const int w) {
+	rect.w = w;
+	this->w = w;
 }
+
+void Rect::set_height(const int h) {
+	rect.h = h;
+	this->h = h;
+}
+
+std::tuple<int, int> Rect::get_dimensions() const { return std::make_tuple(rect.w, rect.h); }
 
 void Rect::set_dimensions(const std::tuple<int, int> dim) {
 	rect.w = std::get<0>(dim);
 	rect.h = std::get<1>(dim);
+	w = std::get<0>(dim);
+	h = std::get<1>(dim);
 }
 
 void Rect::set_dimensions(const int w, const int h) {
 	rect.w = w;
 	rect.h = h;
+	this->w = w;
+	this->h = h;
 }
 
 Rect &Rect::operator=(const Rect &copy) {

@@ -6,6 +6,7 @@
 #include <string>
 #include <yaml.h>
 
+#include "cereal/types/deque.hpp"
 #include "exception.h"
 #include "scene.h"
 #include "window.h"
@@ -30,6 +31,7 @@ namespace kuma {
 		void next_scene(Window &window, Timer &timer, Mixer &mixer);
 		void prev_scene(Window &window, Timer &timer, Mixer &mixer);
 		std::deque<Scene> scenes;
+		template <class Archive> void serialize(Archive &ar) { ar(CEREAL_NVP(scenes)); }
 	};
 }
 

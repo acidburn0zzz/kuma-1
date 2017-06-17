@@ -14,15 +14,12 @@ Game::Game(std::string path) {
 	user_files.set_dir(org, name);
 	config.new_config(user_files.get_path());
 	if (from["user_config"]) {
-		auto config_path = user_files.get_path() +=
-		    from["user_config"].as<std::string>();
+		auto config_path = user_files.get_path() += from["user_config"].as<std::string>();
 		config.from_yaml(config_path);
 	}
-	window = Window(
-	    name,
-	    displays.displays.at(0).get_center_x_cord(config.window_width),
-	    displays.displays.at(0).get_center_y_cord(config.window_height),
-	    config.window_width, config.window_height, config.window_flag);
+	window = Window(name, displays.displays.at(0).get_center_x_cord(config.window_width),
+	                displays.displays.at(0).get_center_y_cord(config.window_height),
+	                config.window_width, config.window_height, config.window_flag);
 	if (from["client_icon"]) {
 		window.set_icon(from["client_icon"].as<std::string>());
 	}
@@ -31,16 +28,14 @@ Game::Game(std::string path) {
 	running = true;
 #ifdef _DEBUG_
 	debug_log.open(user_files.get_path() + name + "_debug_log.txt");
-	std::cout << "Debug log located at '"
-		  << user_files.get_path() + name + "_debug_log.txt"
-		  << "'\n";
+	std::cout << "Debug log located at '" << user_files.get_path() + name + "_debug_log.txt"
+	          << "'\n";
 #endif
 }
 
 Game::Game(std::string org, std::string name) {
-	window =
-	    Window(name, 0, 0, displays.displays.at(0).get_width(),
-		   displays.displays.at(0).get_height(), WindowFlag::Resizable);
+	window = Window(name, 0, 0, displays.displays.at(0).get_width(),
+	                displays.displays.at(0).get_height(), WindowFlag::Resizable);
 	this->global_script_context["global_window"] = window;
 	window.write_variables(this->global_script_context);
 	running = true;
@@ -49,9 +44,8 @@ Game::Game(std::string org, std::string name) {
 	user_files.set_dir(org, name);
 #ifdef _DEBUG_
 	debug_log.open(user_files.get_path() + name + "_debug_log.txt");
-	std::cout << "Debug log located at '"
-		  << user_files.get_path() + name + "_debug_log.txt"
-		  << "'\n";
+	std::cout << "Debug log located at '" << user_files.get_path() + name + "_debug_log.txt"
+	          << "'\n";
 #endif
 }
 

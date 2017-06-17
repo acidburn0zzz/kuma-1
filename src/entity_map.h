@@ -6,6 +6,10 @@
 #include <tuple>
 #include <yaml.h>
 
+#include "cereal/archives/json.hpp"
+#include "cereal/types/map.hpp"
+#include "cereal/types/string.hpp"
+#include "cereal/types/vector.hpp"
 #include "entity.h"
 #include "layer.h"
 #include "window.h"
@@ -28,6 +32,9 @@ namespace kuma {
 
 		std::vector<std::shared_ptr<Entity>> entities;
 		EntityLayer entity_layer;
+		template <class Archive> void serialize(Archive &ar) {
+			ar(CEREAL_NVP(entity_layer));
+		}
 	};
 }
 

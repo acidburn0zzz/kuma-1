@@ -39,8 +39,7 @@ namespace kuma {
 		void set_image_path(std::string);
 		std::string get_image_path();
 		void free();
-		void from_surface(const SharedSurfacePtr surface,
-				  Window &window);
+		void from_surface(const SharedSurfacePtr surface, Window &window);
 		Texture &get_texture();
 		Texture(const Texture &copy);
 		Texture &operator=(const Texture &copy);

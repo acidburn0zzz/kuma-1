@@ -23,11 +23,9 @@ namespace kuma {
 	class Entity : public DebugLoggable {
 	public:
 		Entity();
-		Entity(std::string path, Window &window, int x, int y, int w,
-		       int h);
+		Entity(std::string path, Window &window, int x, int y, int w, int h);
 		Entity(RW &, SDL_Renderer *, int x, int y);
-		void execute_script(std::string name, std::string path,
-				    ScriptContext &context);
+		void execute_script(std::string name, std::string path, ScriptContext &context);
 		void load_script(std::string path, ScriptContext &context);
 		void yaml_attributes(std::string path);
 		void move(int constraint_x, int constraint_y, Timer &timer);

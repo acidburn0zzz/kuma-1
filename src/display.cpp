@@ -30,7 +30,6 @@ void Displays::populate_display_data() {
 	for (int i = 0; i < SDL_GetNumVideoDisplays(); i++) {
 		SDL_DisplayMode mode;
 		SDL_GetDisplayMode(i, 0, &mode);
-		displays.insert(
-		    std::pair<int, DisplayMode>(i, DisplayMode(mode)));
+		displays.insert(std::pair<int, DisplayMode>(i, DisplayMode(mode)));
 	}
 }

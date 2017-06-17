@@ -16,13 +16,12 @@ namespace kuma {
 		InitMod = MIX_INIT_MOD,
 		InitMp3 = MIX_INIT_MP3,
 		InitOgg = MIX_INIT_OGG,
-		InitAll =
-		    MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG,
+		InitAll = MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG,
 	};
 
 	inline MixInitFlag operator|(MixInitFlag a, MixInitFlag b) {
 		return static_cast<MixInitFlag>(static_cast<uint32_t>(a) |
-						static_cast<uint32_t>(b));
+		                                static_cast<uint32_t>(b));
 	}
 
 	/// Flags for initializing SDL subsystems
@@ -46,8 +45,7 @@ namespace kuma {
 	};
 
 	inline InitFlag operator|(InitFlag a, InitFlag b) {
-		return static_cast<InitFlag>(static_cast<uint32_t>(a) |
-					     static_cast<uint32_t>(b));
+		return static_cast<InitFlag>(static_cast<uint32_t>(a) | static_cast<uint32_t>(b));
 	}
 
 	/// Flags for initializing SDL_img image support
@@ -64,7 +62,7 @@ namespace kuma {
 
 	inline ImgInitFlag operator|(ImgInitFlag a, ImgInitFlag b) {
 		return static_cast<ImgInitFlag>(static_cast<uint32_t>(a) |
-						static_cast<uint32_t>(b));
+		                                static_cast<uint32_t>(b));
 	}
 
 	/// Initializes SDL, SDL_img and SDL_ttf subsystems for use within

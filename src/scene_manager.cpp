@@ -30,12 +30,10 @@ void SceneManager::read_yaml(std::string path, Window &window) {
 			scenes.back().order = it->second["order"].as<int>();
 		}
 		if (it->second["name"]) {
-			scenes.back().name =
-			    it->second["name"].as<std::string>();
+			scenes.back().name = it->second["name"].as<std::string>();
 		}
 		if (it->second["map"]) {
-			scenes.back().map.from_yaml(
-			    it->second["map"].as<std::string>(), window);
+			scenes.back().map.from_yaml(it->second["map"].as<std::string>(), window);
 		}
 		if (it->second["entity_map"]) {
 			scenes.back().entity_map.from_yaml(
@@ -43,7 +41,7 @@ void SceneManager::read_yaml(std::string path, Window &window) {
 		}
 	}
 	std::sort(scenes.begin(), scenes.end(),
-		  [](Scene &lh, Scene &rh) { return lh.order < rh.order; });
+	          [](Scene &lh, Scene &rh) { return lh.order < rh.order; });
 }
 
 void SceneManager::map_front_scene(Window &window) {

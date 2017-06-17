@@ -9,8 +9,7 @@ namespace kuma {
 	public:
 		using Entity::Entity;
 		Player();
-		void handle_input(Window &window, const SDL_Event &event,
-				  Timer &timer);
+		void handle_input(Window &window, const SDL_Event &event, Timer &timer);
 		unsigned last_time = 0;
 	};
 }

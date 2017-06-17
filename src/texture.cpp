@@ -19,8 +19,7 @@ void Texture::from_rw(RW &rw, Window &window) {
 	if (!rw.get()) {
 		throw KException("Texture (): SDL_RWops pointer to nullptr");
 	}
-	texture = SharedTexturePtr(
-	    IMG_LoadTexture_RW(window.get_renderer(), rw.get(), 0));
+	texture = SharedTexturePtr(IMG_LoadTexture_RW(window.get_renderer(), rw.get(), 0));
 	SDL_QueryTexture(texture.get(), nullptr, nullptr, &w, &h);
 	image_path = "FROM_RW";
 }
@@ -38,18 +37,16 @@ void Texture::set_dimensions(const int w, const int h) {
 }
 
 void Texture::from_surface(const SharedSurfacePtr surface, Window &window) {
-	texture = SharedTexturePtr(
-	    SDL_CreateTextureFromSurface(window.get_renderer(), surface.get()));
+	texture =
+	    SharedTexturePtr(SDL_CreateTextureFromSurface(window.get_renderer(), surface.get()));
 }
 
 void Texture::from_image(std::string path, Window &window) {
 	if (!file_exists(path)) {
-		throw KException("Texture (from_image): File '" + path +
-				 "' does not exist");
+		throw KException("Texture (from_image): File '" + path + "' does not exist");
 	}
 	image_path = path;
-	texture = SharedTexturePtr(
-	    IMG_LoadTexture(window.get_renderer(), path.c_str()));
+	texture = SharedTexturePtr(IMG_LoadTexture(window.get_renderer(), path.c_str()));
 	SDL_QueryTexture(texture.get(), nullptr, nullptr, &w, &h);
 }
 

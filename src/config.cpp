@@ -54,7 +54,7 @@ void Config::new_config(std::string path) {
 		     << "window_height: default\n"
 		     << "window_width: default\n"
 		     << "window_flag: windowed\n"
-			"...\n";
+		        "...\n";
 		file.close();
 	}
 }

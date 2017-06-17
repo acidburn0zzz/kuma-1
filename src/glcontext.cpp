@@ -1,9 +1,7 @@
 #include "glcontext.h"
 using namespace kuma;
 
-GLContext::GLContext(Window &window) {
-	context = SDL_GL_CreateContext(window.window.get());
-}
+GLContext::GLContext(Window &window) { context = SDL_GL_CreateContext(window.window.get()); }
 
 GLContext::~GLContext() { SDL_GL_DeleteContext(context); }
 

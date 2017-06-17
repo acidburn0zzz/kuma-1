@@ -8,6 +8,10 @@
 #include <vector>
 #include <yaml.h>
 
+#include "cereal/access.hpp"
+#include "cereal/archives/json.hpp"
+#include "cereal/types/string.hpp"
+#include "cereal/types/vector.hpp"
 #include "drawable.h"
 #include "layer.h"
 #include "texture.h"
@@ -28,6 +32,12 @@ namespace kuma {
 		void draw(Window &window);
 		std::string name;
 		Map &operator=(const Map &copy);
+
+		friend class cereal::access;
+		template <class Archive> void serialize(Archive &ar) {
+			ar(CEREAL_NVP(name));
+			ar(CEREAL_NVP(layers));
+		}
 
 	private:
 		void sort_layers();

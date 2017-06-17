@@ -25,11 +25,10 @@ namespace kuma {
 	public:
 		Text();
 		Text(const std::string &path, const int size);
-		Text(const std::string &path, const int size, Window &window,
-		     int col_width, int x, int y);
+		Text(const std::string &path, const int size, Window &window, int col_width, int x,
+		     int y);
 		void open_font(const std::string &path, const int size);
-		void set_color(const uint8_t R, const uint8_t G,
-			       const uint8_t B, const uint8_t A);
+		void set_color(const uint8_t R, const uint8_t G, const uint8_t B, const uint8_t A);
 		void set_text(const std::string &text, Window &window);
 		std::string get_text() const;
 		void set_text_from_int(int num);

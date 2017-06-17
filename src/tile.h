@@ -3,6 +3,11 @@
 
 #include <string>
 
+#include "cereal/archives/json.hpp"
+#include "cereal/cereal.hpp"
+#include "cereal/types/map.hpp"
+#include "cereal/types/string.hpp"
+#include "cereal/types/vector.hpp"
 #include "drawable.h"
 #include "rect.h"
 #include "texture.h"
@@ -17,6 +22,7 @@ namespace kuma {
 		Texture texture;
 		Rect rect;
 		void draw(Window &window);
+		template <class Archive> void serialize(Archive &ar) { ar(CEREAL_NVP(rect)); }
 	};
 }
 

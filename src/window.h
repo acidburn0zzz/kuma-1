@@ -40,8 +40,7 @@ namespace kuma {
 	};
 
 	inline WindowFlag operator|(WindowFlag a, WindowFlag b) {
-		return static_cast<WindowFlag>(static_cast<uint32_t>(a) |
-					       static_cast<uint32_t>(b));
+		return static_cast<WindowFlag>(static_cast<uint32_t>(a) | static_cast<uint32_t>(b));
 	}
 
 	enum class RenderFlag {
@@ -62,10 +61,9 @@ namespace kuma {
 		/// Defaults `WindowFlag` to `Shown`, and `RenderFlag` to
 		/// `Accelerated`
 		Window(std::string title, int x, int y, int w, int h);
-		Window(std::string title, int x, int y, int w, int h,
-		       WindowFlag flag);
-		Window(std::string title, int x, int y, int w, int h,
-		       WindowFlag win_flag, RenderFlag ren_flag);
+		Window(std::string title, int x, int y, int w, int h, WindowFlag flag);
+		Window(std::string title, int x, int y, int w, int h, WindowFlag win_flag,
+		       RenderFlag ren_flag);
 		void render_clear();
 		void render_present();
 		void render_frame();
@@ -80,8 +78,8 @@ namespace kuma {
 		uint32_t get_frame_count();
 		Window(const Window &copy);
 		Window &operator=(const Window &copy);
-		SharedWindowPtr set_window(std::string title, int x, int y,
-					   int w, int h, WindowFlag win_flag);
+		SharedWindowPtr set_window(std::string title, int x, int y, int w, int h,
+		                           WindowFlag win_flag);
 		SharedRenderPtr set_renderer(RenderFlag ren_flag);
 		SharedWindowPtr window;
 		SharedRenderPtr renderer;

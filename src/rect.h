@@ -8,6 +8,11 @@
 
 #include "SDL_pixels.h"
 #include "SDL_rect.h"
+#include "cereal/access.hpp"
+#include "cereal/archives/json.hpp"
+#include "cereal/types/map.hpp"
+#include "cereal/types/string.hpp"
+#include "cereal/types/vector.hpp"
 #include "drawable.h"
 
 namespace kuma {
@@ -51,8 +56,8 @@ namespace kuma {
 		void set_x_cord(const int x);
 		/// Set's Y position only
 		void set_y_cord(const int y);
-		void set_outline_color(const uint8_t R, const uint8_t G,
-				       const uint8_t B, const uint8_t A);
+		void set_outline_color(const uint8_t R, const uint8_t G, const uint8_t B,
+		                       const uint8_t A);
 		void draw(Window &window);
 		int get_x_cord();
 		int get_y_cord();
@@ -72,6 +77,15 @@ namespace kuma {
 		int get_y_velocity() const;
 		Rect &operator=(const Rect &copy);
 		bool operator!=(const Rect &other) const;
+		friend class cereal::access;
+		template <class Archive> void serialize(Archive &ar) {
+			ar(CEREAL_NVP(x));
+			ar(CEREAL_NVP(y));
+			ar(CEREAL_NVP(w));
+			ar(CEREAL_NVP(h));
+			ar(CEREAL_NVP(x_velocity));
+			ar(CEREAL_NVP(y_velocity));
+		}
 
 	private:
 		int x_velocity = 0;

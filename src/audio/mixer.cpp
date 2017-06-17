@@ -19,8 +19,8 @@ Mixer::Mixer() {
 }
 
 Mixer::Mixer(int freq, AudioFormat format, AudioMode mode, int sample_size) {
-	if (Mix_OpenAudio(freq, static_cast<uint16_t>(format),
-			  static_cast<int>(mode), sample_size) != 0) {
+	if (Mix_OpenAudio(freq, static_cast<uint16_t>(format), static_cast<int>(mode),
+	                  sample_size) != 0) {
 		std::string sdl_error = Mix_GetError();
 		throw KException("Mixer (): " + sdl_error);
 	}
@@ -32,17 +32,11 @@ void Mixer::get_spec() {
 	// static_cast<int>(mode));
 }
 
-void Mixer::play(Music &music) {
-	Mix_PlayMusic(music.get_inner(), music.loops);
-}
+void Mixer::play(Music &music) { Mix_PlayMusic(music.get_inner(), music.loops); }
 
-void Mixer::play(Music &music, int loop_times) {
-	Mix_PlayMusic(music.get_inner(), loop_times);
-}
+void Mixer::play(Music &music, int loop_times) { Mix_PlayMusic(music.get_inner(), loop_times); }
 
-void Mixer::play(Chunk &chunk) {
-	Mix_PlayChannel(-1, chunk.get_inner(), chunk.loops);
-}
+void Mixer::play(Chunk &chunk) { Mix_PlayChannel(-1, chunk.get_inner(), chunk.loops); }
 
 void Mixer::set_master_volume(int volume) {
 	Mix_Volume(-1, volume);

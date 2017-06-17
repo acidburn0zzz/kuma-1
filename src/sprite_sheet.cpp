@@ -1,11 +1,9 @@
 #include "sprite_sheet.h"
 
 using namespace kuma;
-class Window;
 
-SpriteSheet::SpriteSheet(const std::string &path, Window &window,
-			 const int clip_width, const int clip_height,
-			 const int margin) {
+SpriteSheet::SpriteSheet(const std::string &path, Window &window, const int clip_width,
+                         const int clip_height, const int margin) {
 	texture.from_image(path, window);
 	this->clip_width_ = clip_width;
 	this->clip_height_ = clip_height;
@@ -14,8 +12,8 @@ SpriteSheet::SpriteSheet(const std::string &path, Window &window,
 	set_cells(Order::RowMajor);
 }
 
-SpriteSheet::SpriteSheet(const std::string &path, Window &window,
-			 const int clip_width, const int clip_height) {
+SpriteSheet::SpriteSheet(const std::string &path, Window &window, const int clip_width,
+                         const int clip_height) {
 	texture.from_image(path, window);
 	this->clip_width_ = clip_width;
 	this->clip_height_ = clip_height;
@@ -45,22 +43,19 @@ void SpriteSheet::set_cells(const Order order) {
 					x = 0;
 					y += (clip_height_ + margin_);
 				}
-				cells.push_back(
-				    Rect(x, y, clip_width_, clip_height_));
+				cells.push_back(Rect(x, y, clip_width_, clip_height_));
 				x += (clip_width_ + margin_);
 			}
 		}
 	} else {
-		for (int i = clip_width_; i <= texture.get_width();
-		     i += (clip_width_ + margin_)) {
+		for (int i = clip_width_; i <= texture.get_width(); i += (clip_width_ + margin_)) {
 			for (int j = clip_height_; j <= texture.get_height();
 			     j += (clip_height_ + margin_)) {
 				if (x == texture.get_width()) {
 					x = 0;
 					y += (clip_height_ + margin_);
 				}
-				cells.push_back(
-				    Rect(x, y, clip_width_, clip_height_));
+				cells.push_back(Rect(x, y, clip_width_, clip_height_));
 				x += (clip_width_ + margin_);
 			}
 		}

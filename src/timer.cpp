@@ -56,8 +56,7 @@ unsigned Timer::get_fps(unsigned long frames) {
 void Timer::print_counter() {
 	// std::cout << "\rRunning Time: " << std::setw(6) <<
 	// (get_running_time() / 1000.00) << " seconds.";
-	std::cout << "\rCounter: " << std::setw(6) << (get_ticks() / 1000.00)
-		  << " seconds";
+	std::cout << "\rCounter: " << std::setw(6) << (get_ticks() / 1000.00) << " seconds";
 	std::cout.flush();
 }
 

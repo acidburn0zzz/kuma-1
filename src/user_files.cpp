@@ -5,9 +5,7 @@
 #include "SDL_stdinc.h"
 using namespace kuma;
 
-UserFiles::UserFiles(std::string org_name, std::string game_name) {
-	set_dir(org_name, game_name);
-}
+UserFiles::UserFiles(std::string org_name, std::string game_name) { set_dir(org_name, game_name); }
 
 void UserFiles::set_dir(std::string org_name, std::string game_name) {
 	char *base = SDL_GetPrefPath(org_name.c_str(), game_name.c_str());

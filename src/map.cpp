@@ -31,12 +31,10 @@ void Map::read_yaml(std::string path) {
 			temp.empty_w = it->second["empty_w"].as<int>();
 		}
 		if (it->second["legend"]) {
-			for (unsigned i = 0; i < it->second["legend"].size();
-			     i++) {
-				temp.legend.insert(std::pair<char, std::string>(
-				    it->second["legend"][i]["key"].as<char>(),
-				    it->second["legend"][i]["image"]
-					.as<std::string>()));
+			for (unsigned i = 0; i < it->second["legend"].size(); i++) {
+				temp.legend.insert(std::pair<std::string, std::string>(
+				    it->second["legend"][i]["key"].as<std::string>(),
+				    it->second["legend"][i]["image"].as<std::string>()));
 			}
 		}
 		if (it->second["raw"]) {
@@ -55,9 +53,7 @@ void Map::from_yaml(std::string path, Window &window) {
 
 void Map::sort_layers() {
 	std::sort(layers.begin(), layers.end(),
-		  [](TileLayer &lhs, TileLayer &rhs) {
-			  return lhs.level < rhs.level;
-		  });
+	          [](TileLayer &lhs, TileLayer &rhs) { return lhs.level < rhs.level; });
 }
 
 void Map::map_tiles(Window &window) {
@@ -73,15 +69,11 @@ void Map::map_tiles(Window &window) {
 				if (tile == last) {
 					layer.tiles.emplace_back(
 					    Tile(layer.tiles.back().texture,
-						 layer.tiles.back()
-						     .texture.get_width(),
-						 layer.tiles.back()
-						     .texture.get_height()));
-					x += layer.tiles.back()
-						 .texture.get_width();
+					         layer.tiles.back().texture.get_width(),
+					         layer.tiles.back().texture.get_height()));
+					x += layer.tiles.back().texture.get_width();
 				} else {
-					auto tile_entry =
-					    layer.legend.find(tile);
+					auto tile_entry = layer.legend.find(std::string(1, tile));
 					// If tile is found in legend
 					if (tile_entry != layer.legend.cend()) {
 						// If we have a previous tile
@@ -89,20 +81,12 @@ void Map::map_tiles(Window &window) {
 						// we know how wide it is and
 						// can set X
 						if (layer.tiles.size() > 0) {
-							layer.tiles
-							    .emplace_back(Tile(
-								tile_entry
-								    ->second,
-								window, x, y));
-							x += layer.tiles.back()
-								 .texture
-								 .get_width();
+							layer.tiles.emplace_back(
+							    Tile(tile_entry->second, window, x, y));
+							x += layer.tiles.back().texture.get_width();
 						} else {
-							layer.tiles
-							    .emplace_back(Tile(
-								tile_entry
-								    ->second,
-								window, x, y));
+							layer.tiles.emplace_back(
+							    Tile(tile_entry->second, window, x, y));
 							x += layer.empty_w;
 						}
 					}

@@ -3,6 +3,10 @@
 
 #include <string>
 
+#include "cereal/archives/json.hpp"
+#include "cereal/types/map.hpp"
+#include "cereal/types/string.hpp"
+#include "cereal/types/vector.hpp"
 #include "entity_map.h"
 #include "map.h"
 #include "script_context.h"
@@ -20,6 +24,12 @@ namespace kuma {
 		EntityMap entity_map;
 		Map map;
 		ScriptContext scene_context;
+		template <class Archive> void serialize(Archive &ar) {
+			ar(CEREAL_NVP(order));
+			ar(CEREAL_NVP(name));
+			ar(CEREAL_NVP(entity_map));
+			ar(CEREAL_NVP(map));
+		}
 	};
 }
 

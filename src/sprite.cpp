@@ -10,8 +10,8 @@ using namespace kuma;
 class Mixer;
 class Window;
 
-void Sprite::from_sheet(const std::string path, Window &window, int clip_width,
-			int clip_height, int margin) {
+void Sprite::from_sheet(const std::string path, Window &window, int clip_width, int clip_height,
+                        int margin) {
 	sheet = SpriteSheet(path, window, clip_width, clip_height, margin);
 	rect.set_dimensions(clip_width, clip_height);
 }
@@ -21,44 +21,39 @@ void Sprite::from_yaml(const std::string &path, Window &window) {
 	if (from["from_sheet"]) {
 		if (from["clip_width"] && from["clip_height"]) {
 			if (from["margin"]) {
-				from_sheet(from["from_sheet"].as<std::string>(),
-					   window, from["clip_width"].as<int>(),
-					   from["clip_height"].as<int>(),
-					   from["margin"].as<int>());
+				from_sheet(from["from_sheet"].as<std::string>(), window,
+				           from["clip_width"].as<int>(),
+				           from["clip_height"].as<int>(), from["margin"].as<int>());
 			} else {
-				from_sheet(from["from_sheet"].as<std::string>(),
-					   window, from["clip_width"].as<int>(),
-					   from["clip_height"].as<int>(), 0);
+				from_sheet(from["from_sheet"].as<std::string>(), window,
+				           from["clip_width"].as<int>(),
+				           from["clip_height"].as<int>(), 0);
 			}
 		}
 	}
 	if (from["animations"]) {
-		std::for_each(
-		    from["animations"].begin(), from["animations"].end(),
-		    [this](YAML::Node animation) {
-			    set_animation(
-				animation["name"].as<std::string>(),
-				// Range for animations is start, end, rate
-				animation["range"][0].as<int>(),
-				animation["range"][1].as<int>(),
-				animation["range"][2].as<int>(),
-				animation["sound"].as<std::string>(),
-				animation["sound-rate"].as<int>());
-		    });
+		std::for_each(from["animations"].begin(), from["animations"].end(),
+		              [this](YAML::Node animation) {
+			              set_animation(animation["name"].as<std::string>(),
+			                            // Range for animations is start, end, rate
+			                            animation["range"][0].as<int>(),
+			                            animation["range"][1].as<int>(),
+			                            animation["range"][2].as<int>(),
+			                            animation["sound"].as<std::string>(),
+			                            animation["sound-rate"].as<int>());
+			      });
 	}
 	current = &animations.begin()->second;
 }
 
-void Sprite::set_animation(const std::string name, const int begin,
-			   const int end, const unsigned rate,
-			   const std::string sound_path,
-			   const unsigned sound_rate) {
+void Sprite::set_animation(const std::string name, const int begin, const int end,
+                           const unsigned rate, const std::string sound_path,
+                           const unsigned sound_rate) {
 	if (end > (int)sheet.cells.size()) {
 		throw KException("Sprite::set_animation(): tried to assign "
-				 "frames > sheet size");
+		                 "frames > sheet size");
 	}
-	animations.insert(
-	    std::pair<std::string, Animation>(name, Animation(name, rate)));
+	animations.insert(std::pair<std::string, Animation>(name, Animation(name, rate)));
 	if (!sound_path.empty()) {
 		animations[name].set_sound(sound_path, sound_rate);
 	}
@@ -88,9 +83,7 @@ void Sprite::draw(Window &window, const Timer &timer, Mixer &mixer) {
 	current->render_front(window, sheet.texture, rect);
 }
 
-void Sprite::draw(Window &window) {
-	current->render_front(window, sheet.texture, rect);
-}
+void Sprite::draw(Window &window) { current->render_front(window, sheet.texture, rect); }
 
 void Sprite::draw_ex(Window &window, const Timer &, Mixer &, double angle) {
 	current->render_front(window, sheet.texture, rect, angle);

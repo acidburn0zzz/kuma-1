@@ -30,8 +30,7 @@ namespace kuma {
 	class Mixer {
 	public:
 		Mixer();
-		Mixer(int freq, AudioFormat format, AudioMode mode,
-		      int sample_size);
+		Mixer(int freq, AudioFormat format, AudioMode mode, int sample_size);
 		void play(Music &music);
 		void play(Chunk &chunk);
 		void play(Music &music, int loops);

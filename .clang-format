@@ -1,6 +1,7 @@
 BasedOnStyle: LLVM
 IndentWidth: 8
-UseTab: Always
+ColumnLimit: 100
+UseTab: ForIndentation
 BreakBeforeBraces: Attach
 AllowShortIfStatementsOnASingleLine: false
 IndentCaseLabels: false
@@ -18,4 +19,4 @@ IncludeCategories:
     Priority: 3
   - Regex: '^(")'
     Priority: 4
-
+SortIncludes: true

@@ -21,11 +21,10 @@ namespace kuma {
 	class SpriteSheet {
 	public:
 		SpriteSheet() {}
-		SpriteSheet(const std::string &path, Window &window,
-			    const int clip_width, const int clip_height,
-			    const int margin);
-		SpriteSheet(const std::string &path, Window &window,
-			    const int clip_width, const int clip_height);
+		SpriteSheet(const std::string &path, Window &window, const int clip_width,
+		            const int clip_height, const int margin);
+		SpriteSheet(const std::string &path, Window &window, const int clip_width,
+		            const int clip_height);
 		void set_cells(const Order order);
 		int clip_width() const;
 		int clip_height() const;

@@ -3,15 +3,12 @@
 #include "util.h"
 
 using namespace kuma;
-class Timer;
-class Window;
 
 Text::Text() {}
 
 Text::Text(const std::string &path, const int size) { open_font(path, size); }
 
-Text::Text(const std::string &path, const int size, Window &window,
-	   int col_width, int x, int y) {
+Text::Text(const std::string &path, const int size, Window &window, int col_width, int x, int y) {
 	if (inner_text.empty()) {
 		inner_text = "(EMPTY)";
 	}
@@ -56,8 +53,7 @@ void Text::open_font(const std::string &path, const int size) {
 	TTF_SetFontKerning(font.get(), 1);
 }
 
-void Text::set_color(const uint8_t R, const uint8_t G, const uint8_t B,
-		     const uint8_t A) {
+void Text::set_color(const uint8_t R, const uint8_t G, const uint8_t B, const uint8_t A) {
 	font_color.r = R;
 	font_color.g = G;
 	font_color.b = B;
@@ -75,6 +71,6 @@ void Text::set(Window &window, int col_width) {
 
 void Text::draw(Window &window, const Timer &) {
 	generate_texture(window);
-	SDL_RenderCopy(window.get_renderer(), texture.get_sdl_texture(),
-		       nullptr, rect.get_sdl_rect());
+	SDL_RenderCopy(window.get_renderer(), texture.get_sdl_texture(), nullptr,
+	               rect.get_sdl_rect());
 }

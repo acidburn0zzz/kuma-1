@@ -17,8 +17,7 @@ namespace kuma {
 	public:
 		virtual void draw(Window &window, const Timer &timer) = 0;
 		virtual void draw(Window &, const Timer &, Mixer &){};
-		virtual void draw_ex(Window &, const Timer &, Mixer &,
-				     double){};
+		virtual void draw_ex(Window &, const Timer &, Mixer &, double){};
 		// virtual void draw_ex(Window &window, const Timer &timer,
 		// const int
 		// angle,

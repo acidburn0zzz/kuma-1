@@ -1,13 +1,11 @@
 #include "window.h"
 
 using namespace kuma;
-class ScriptContext;
 
 Window::Window() {}
 
 Window::Window(std::string title, int x, int y, int w, int h) {
-	window = set_window(title, x, y, w, h,
-			    WindowFlag::Shown | WindowFlag::OpenGl);
+	window = set_window(title, x, y, w, h, WindowFlag::Shown | WindowFlag::OpenGl);
 	renderer = set_renderer(RenderFlag::Accelerated);
 	SDL_RenderSetLogicalSize(renderer.get(), w, h);
 }
@@ -18,8 +16,8 @@ Window::Window(std::string title, int x, int y, int w, int h, WindowFlag flag) {
 	SDL_RenderSetLogicalSize(renderer.get(), w, h);
 }
 
-Window::Window(std::string title, int x, int y, int w, int h,
-	       WindowFlag win_flag, RenderFlag ren_flag) {
+Window::Window(std::string title, int x, int y, int w, int h, WindowFlag win_flag,
+               RenderFlag ren_flag) {
 	window = set_window(title, x, y, w, h, win_flag);
 	renderer = set_renderer(ren_flag);
 	SDL_RenderSetLogicalSize(renderer.get(), w, h);
@@ -44,25 +42,23 @@ int Window::get_width() {
 	return w;
 }
 
-void Window::set_renderer_scaling(int w, int h) {
-	SDL_RenderSetLogicalSize(renderer.get(), w, h);
-}
+void Window::set_renderer_scaling(int w, int h) { SDL_RenderSetLogicalSize(renderer.get(), w, h); }
 
 void Window::render_clear() { SDL_RenderClear(this->renderer.get()); }
 
 void Window::render_present() { SDL_RenderPresent(this->renderer.get()); }
 
 SharedRenderPtr Window::set_renderer(RenderFlag ren_flag) {
-	return SharedRenderPtr(SDL_CreateRenderer(
-	    window.get(), -1, static_cast<uint32_t>(ren_flag)));
+	return SharedRenderPtr(
+	    SDL_CreateRenderer(window.get(), -1, static_cast<uint32_t>(ren_flag)));
 }
 
-SharedWindowPtr Window::set_window(std::string title, int x, int y, int w,
-				   int h, WindowFlag win_flag) {
+SharedWindowPtr Window::set_window(std::string title, int x, int y, int w, int h,
+                                   WindowFlag win_flag) {
 	this->w = w;
 	this->h = h;
-	return SharedWindowPtr(SDL_CreateWindow(
-	    title.c_str(), x, y, w, h, static_cast<uint32_t>(win_flag)));
+	return SharedWindowPtr(
+	    SDL_CreateWindow(title.c_str(), x, y, w, h, static_cast<uint32_t>(win_flag)));
 }
 
 void Window::render_frame() {
@@ -76,8 +72,8 @@ void Window::inc_frame_count() { frame_count++; }
 uint32_t Window::get_frame_count() { return frame_count; }
 
 void Window::write_variables(ScriptContext &context) {
-	context.new_usertype<Window>("window", "get_width", &Window::get_width,
-				     "get_height", &Window::get_height);
+	context.new_usertype<Window>("window", "get_width", &Window::get_width, "get_height",
+	                             &Window::get_height);
 }
 
 Window &Window::operator=(const Window &copy) {

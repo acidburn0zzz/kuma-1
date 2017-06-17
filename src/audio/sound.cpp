@@ -11,9 +11,7 @@ Music::Music(std::string path) {
 	}
 	inner = SharedMusicPtr(Mix_LoadMUS(path.c_str()));
 	if (!inner) {
-		throw KException(
-		    "Music (): Music not allocated correctly for path '" +
-		    path + "'");
+		throw KException("Music (): Music not allocated correctly for path '" + path + "'");
 	}
 	loops = 0;
 }

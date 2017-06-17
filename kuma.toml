@@ -3,7 +3,7 @@ name = "kuma"
 file-extensions = ["cpp"]
 compiler = "g++"
 compiler-flags = ["std=c++14", "O0", "Wall", "Wextra", "pedantic-errors", "g", "D_DEBUG_"]
-include = ["src","`pkg-config --cflags sdl2 lua5.3`", "/usr/include/yaml-cpp", "third_party/sol2/single/sol"]
+include = ["src","`pkg-config --cflags sdl2 lua5.3`", "/usr/include/yaml-cpp", "third_party/sol2/single/sol", "third_party/cereal/include"]
 libraries = [
 	"`pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer lua5.3 yaml-cpp`"
 ]

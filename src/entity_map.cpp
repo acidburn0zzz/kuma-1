@@ -27,17 +27,12 @@ void EntityMap::read_yaml(std::string path) {
 	}
 	if (from["legend"]) {
 		for (unsigned i = 0; i < from["legend"].size(); i++) {
-			entity_layer.legend.insert(
-			    std::pair<char, std::tuple<std::string, std::string,
-						       int, int>>(
-				from["legend"][i]["key"].as<char>(),
-				std::make_tuple(
-				    from["legend"][i]["sprite_yaml"]
-					.as<std::string>(),
-				    from["legend"][i]["attributes"]
-					.as<std::string>(),
-				    from["legend"][i]["w"].as<int>(),
-				    from["legend"][i]["h"].as<int>())));
+			entity_layer.legend.insert(std::pair<std::string, EntityLayerEntry>(
+			    from["legend"][i]["key"].as<std::string>(),
+			    EntityLayerEntry(from["legend"][i]["sprite_yaml"].as<std::string>(),
+			                     from["legend"][i]["attributes"].as<std::string>(),
+			                     from["legend"][i]["w"].as<int>(),
+			                     from["legend"][i]["h"].as<int>())));
 		}
 	}
 	if (from["raw"]) {
@@ -47,22 +42,16 @@ void EntityMap::read_yaml(std::string path) {
 
 void EntityMap::map_entities(Window &window) {
 	int x = 0, y = 0;
-	for (auto it = entity_layer.raw.begin(); it != entity_layer.raw.end();
-	     ++it) {
-		if ((*it != '\n') && (*it != entity_layer.empty)) {
-			auto entity_entry = entity_layer.legend.find(*it);
-			if (entity_entry != entity_layer.legend.end()) {
-				entities.emplace_back(new Entity);
-				entities.back()->sprite.from_yaml(
-				    std::get<0>(entity_entry->second), window);
-				entities.back()->sprite.rect.set_x_cord(x);
-				entities.back()->sprite.rect.set_y_cord(y);
-				x += entities.back()
-					 ->get_sprite()
-					 .sheet.clip_width();
-				entities.back()->yaml_attributes(
-				    std::get<1>(entity_entry->second));
-			}
+	for (auto it = entity_layer.raw.begin(); it != entity_layer.raw.end(); ++it) {
+		if ((*it != '\n') && (*it != entity_layer.empty) &&
+		    entity_layer.legend.count(std::string(1, *it)) != 0) {
+			auto entity_entry = entity_layer.legend[std::string(1, *it)];
+			entities.emplace_back(new Entity);
+			entities.back()->sprite.from_yaml(entity_entry.sprite_yaml, window);
+			entities.back()->sprite.rect.set_x_cord(x);
+			entities.back()->sprite.rect.set_y_cord(y);
+			x += entities.back()->get_sprite().sheet.clip_width();
+			entities.back()->yaml_attributes(entity_entry.attributes);
 		}
 		if (*it == '\n') {
 			y += entity_layer.empty_h;
