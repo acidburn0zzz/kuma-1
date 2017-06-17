@@ -6,8 +6,10 @@ before_install:
     - export PATH=$PATH:$HOME/.cargo/bin
     - sed -i 's/lua5\.3/lua5\.1/g' kuma.toml tests/tests.toml
     - sudo apt-get update -qq
+    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+    - sudo apt-get update -qq
+    - sudo apt-get install gcc-6 g++-6 -y
+    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 60 --slave /usr/bin/g++ g++ /usr/bin/g++-6
     - sudo apt-get install build-essential valgrind libsdl2-ttf-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libboost-dev liblua5.1-0-dev libyaml-cpp-dev -y
 script:
-    - yabs build
-    - cd tests/
     - yabs build
