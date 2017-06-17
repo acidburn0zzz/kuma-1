@@ -1,9 +1,8 @@
-language: rust
 sudo: required
 dist: trusty
 before_install:
-    - cargo install yabs
-    - export PATH=$PATH:$HOME/.cargo/bin
+    - wget "https://github.com/0X1A/yabs/releases/download/0.2.1/yabs_0.2.1_amd64.deb"
+    - sudo dpkg -i yabs_0.2.1_amd64.deb
     - git submodule update --init
     - sed -i 's/lua5\.3/lua5\.1/g' kuma.toml tests/tests.toml
     - sudo apt-get update -qq
